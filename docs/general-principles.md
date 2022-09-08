@@ -10,7 +10,7 @@ Some of these principles are taken directly from existing guidance on the practi
 
 * Experiments in code are better than lengthy debate. It's OK to throw away an experiment once it's proven one way or another.
 
-* Choose options that are well supported in the wider tech world
+* Choose options that are well supported in the wider tech world.
 
 * Adopt the best practices of the wider tech world.
 

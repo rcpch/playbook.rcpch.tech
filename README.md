@@ -2,7 +2,7 @@
 
 ## About the RCPCH Incubator
 
-The RCPCH Incubator is an official project of the RCPCH aimed at bringing clinicians, software developers, and other experts together to develop clinical software to realise the potential of digital health in international paediatrics and child health.
+The RCPCH Incubator is an official project of the RCPCH aimed at bringing clinicians, software developers, academics and other experts together to develop clinical software to realise the potential of digital health in international paediatrics and child health.
 
 ## About the RCPCH Incubator Playbook
 
