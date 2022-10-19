@@ -6,8 +6,8 @@
 
 * **All business-critical services must be on this domain and must have SSL enforced**.
 
-!!! notice "HOWTO" "HOWTO"
-    For security reasons, control of this domain is with the senior IT managers at RCPCH.
+!!! notice "HOWTO"
+    For security reasons, control of this domain is with the senior IT team at RCPCH.
 
 ## rcpch.tech (SECONDARY)
 
