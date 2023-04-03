@@ -17,8 +17,57 @@ dev_addr: "127.0.0.1:8002"
 
 nav:
   - Home: "home.md"
+  - About:
+    - 'about/about.md'
+    - 'about/authors.md'
+    - 'about/contact.md'
+  - Principles:
+    - 'principles/general-principles.md'
+    - 'principles/open-source.md'
+    - 'principles/security.md'
+    - 'principles/tools.md'
+    - 'principles/git.md'
+  - Developers:
+    - 'developer/start-here.md'
+    - 'developer/api-python.md'
+    - 'developer/api-docker.md'
+    - 'developer/versioning.md'
+    - 'developer/writing-documentation.md'
+    - 'developer/faqs-for-developers.md'
+    - 'developer/contributing.md'
+    - 'developer/deployment.md'
+    - 'developer/domain-names.md'
+  - Python: #content overlaps with Contributors
+    - 'python/dependency-management.md'
+    - 'python/requirements.md'
+    - 'python/tidy_imports.md'
   - RCPCH Census Platform: 
-    - 'census/about.md'
+    - 'products_services/census/about.md'
+    - 'products_services/census/deprivare.md'
+  - Hermes-Docker: 
+    - 'products_services/hermes/hermes-docker.md'
+  - Technical:
+    - 'technical/security.md'
+    - 'technical/data-security-protection-toolkit.md'
+    - 'technical/status.md'
+  - Clinical Safety:
+    - 'safety/overview.md'
+    - Clinical Safety File:
+      - 'safety/csmf/clinical-risk-mgmt-system.md'
+      - 'safety/csmf/clinical-risk-mgmt-plan.md'
+      - 'safety/csmf/clinical-safety-case-report.md'
+      - 'safety/csmf/hazard-log.md'
+      - 'safety/csmf/third-party-tools-safety-assmt.md'
+      - 'safety/csmf/license.md'
+    - DTAC:
+      - 'safety/dtac.md'
+    - Medical Devices Registration:
+      - 'safety/medical-device-reg/mhra.md'
+      - 'safety/medical-device-reg/essential-req.md'
+      - 'safety/medical-device-reg/doc-api.md'
+      - 'safety/medical-device-reg/mdr-technical-docs.md'
+    - Download: 'safety/download.md'
+  
 
 # theme settings, fonts, colours
 theme:
@@ -50,8 +99,8 @@ plugins:
       repository: rcpch/digital-growth-charts-documentation
       branch: live
       enabled: !ENV [ENABLE_GIT_COMMITTERS, false] # makes Git Committers optional
-  - git-revision-date-localized:
-      enable_creation_date: true
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
   - macros
   - search
   - render_swagger

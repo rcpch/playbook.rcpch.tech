@@ -1,9 +1,7 @@
 ---
 title: The RCPCH Census Platform
-reviewers: Dr Anchit Chandran
+reviewers:
 ---
-
-# RCPCH Census Platform
 
 This project is a python 3.11 / Django Rest Framework project providing UK census data, especially Index of Multiple Deprivation as a service.
 
