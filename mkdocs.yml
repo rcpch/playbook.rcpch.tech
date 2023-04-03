@@ -15,6 +15,11 @@ edit_uri: blob/live/docs
 # `mkdocs serve` serves the documentation at custom port (to avoid clashing with other services we commonly run)
 dev_addr: "127.0.0.1:8002"
 
+nav:
+  - Home: "home.md"
+  - RCPCH Census Platform: 
+    - 'census/about.md'
+
 # theme settings, fonts, colours
 theme:
   name: material
@@ -75,9 +80,6 @@ markdown_extensions:
 # set extra CSS file
 extra_css:
   - _assets/_stylesheets/extra.css
-
-nav:
-  - Home: "home.md"
 
 # footer links and variables
 extra:
