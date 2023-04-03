@@ -8,8 +8,8 @@ site_url: https://docs.epilepsy12.rcpch.ac.uk
 copyright: Copyright &copy; 2022 Royal College of Paediatrics and Child Health (RCPCH)
 
 # these lines configure the 'GitHub repo' widget on the top right
-repo_url: https://github.com/rcpch/epilepsy12-documentation
-repo_name: rcpch/epilepsy12-documentation
+repo_url: https://github.com/rcpch/rcpch-incubator-playbook
+repo_name: rcpch/rcpch-incubator-playbook
 edit_uri: blob/live/docs
 
 # `mkdocs serve` serves the documentation at custom port (to avoid clashing with other services we commonly run)
@@ -30,7 +30,7 @@ theme:
 
   palette:
     # Light mode only for now
-      scheme: default
+    scheme: default
 
   font:
     text: Montserrat
@@ -41,13 +41,23 @@ theme:
 
 # mkdocs plugins
 plugins:
+  - git-committers:
+      repository: rcpch/digital-growth-charts-documentation
+      branch: live
+      enabled: !ENV [ENABLE_GIT_COMMITTERS, false] # makes Git Committers optional
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - macros
   - search
+  - render_swagger
 
 # additional markdown features
 markdown_extensions:
   - abbr
   - admonition
   - attr_list
+  - md_in_html #insiders
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_generator: !!python/name:materialx.emoji.to_svg
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -56,13 +66,18 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.snippets:
       check_paths: true
+      auto_append:
+        - includes/_abbreviations.md
   - pymdownx.superfences
   - toc:
-      permalink: true
+      permalink: false
 
 # set extra CSS file
 extra_css:
   - _assets/_stylesheets/extra.css
+
+nav:
+  - Home: "home.md"
 
 # footer links and variables
 extra:
@@ -71,4 +86,3 @@ extra:
       link: https://twitter.com/rcpchtweets
     - icon: fontawesome/brands/github
       link: https://github.com/rcpch
-      
