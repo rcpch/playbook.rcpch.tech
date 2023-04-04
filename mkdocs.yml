@@ -21,6 +21,7 @@ nav:
     - 'about/about.md'
     - 'about/authors.md'
     - 'about/contact.md'
+    - 'about/acknowledgements.md'
   - Principles:
     - 'principles/general-principles.md'
     - 'principles/open-source.md'
