@@ -1,13 +1,15 @@
 ---
-title: Getting Git
+title: Get Git
 reviewers:
 ---
 
 ## What is Git?
 
+## What is GitHub?
+
 ## Why do we use Git?
 
-## Overview of Git Workflow
+## Overview of GitHub Workflow
 
 ## Downloading VS Code Git Extensions
 
