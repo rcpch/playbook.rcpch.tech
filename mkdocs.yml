@@ -21,6 +21,7 @@ nav:
     - 'about/about.md'
     - 'about/authors.md'
     - 'about/contact.md'
+    - 'about/acknowledgements.md'
   - Principles:
     - 'principles/general-principles.md'
     - 'principles/open-source.md'
@@ -29,20 +30,18 @@ nav:
   - Developer's Guide:
     - 'developer/start-here.md'
     - 'developer/programming-language.md'
-    - 'developer/python-specifics.md'
-    - 'developer/api-python.md'
-    - 'developer/api-docker.md'
+    - Local Development:
+      - 'developer/local-dev/local-dev-env.md'
+      - 'developer/local-dev/pyenv.md'
+      - 'developer/local-dev/venv.md'
+      - 'developer/local-dev/docker.md'
+    - 'developer/python-specific/python-specifics.md'
     - 'developer/versioning.md'
     - 'developer/writing-documentation.md'
-    - 'developer/faqs-for-developers.md'
     - 'developer/contributing.md'
     - 'developer/deployment.md'
     - 'developer/domain-names.md'
     - 'developer/git.md'
-    - Python: #content overlaps with Contributors
-      - 'python/dependency-management.md'
-      - 'python/requirements.md'
-      - 'python/tidy_imports.md'
   - Products & Services:
     - RCPCH Census Platform: 
       - 'products-services/census/about.md'
