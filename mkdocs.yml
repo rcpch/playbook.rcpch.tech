@@ -26,9 +26,10 @@ nav:
     - 'principles/open-source.md'
     - 'principles/security.md'
     - 'principles/tools.md'
-    - 'principles/git.md'
-  - Developers:
+  - Developer's Guide:
     - 'developer/start-here.md'
+    - 'developer/programming-language.md'
+    - 'developer/python-specifics.md'
     - 'developer/api-python.md'
     - 'developer/api-docker.md'
     - 'developer/versioning.md'
@@ -37,15 +38,21 @@ nav:
     - 'developer/contributing.md'
     - 'developer/deployment.md'
     - 'developer/domain-names.md'
-  - Python: #content overlaps with Contributors
-    - 'python/dependency-management.md'
-    - 'python/requirements.md'
-    - 'python/tidy_imports.md'
-  - RCPCH Census Platform: 
-    - 'products_services/census/about.md'
-    - 'products_services/census/deprivare.md'
-  - Hermes-Docker: 
-    - 'products_services/hermes/hermes-docker.md'
+    - 'developer/git.md'
+    - Python: #content overlaps with Contributors
+      - 'python/dependency-management.md'
+      - 'python/requirements.md'
+      - 'python/tidy_imports.md'
+  - Products & Services:
+    - RCPCH Census Platform: 
+      - 'products-services/census/about.md'
+      - 'products-services/census/deprivare.md'
+    - Hermes-Docker: 
+      - 'products-services/hermes/hermes-docker.md'
+  - Projects:
+    - a
+  - Legal:
+    - 'legal/copyright.md'
   - Technical:
     - 'technical/security.md'
     - 'technical/data-security-protection-toolkit.md'
@@ -91,7 +98,7 @@ theme:
     code: Roboto Mono
 
   # favicon: _assets/_images/dynamic-child-favicon.png
-  logo: 'docs/_assets/_images/rcpch_logo.png'
+  logo: '_assets/_images/rcpch_logo.png'
 
 # mkdocs plugins
 plugins:
