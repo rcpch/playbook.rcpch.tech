@@ -29,12 +29,16 @@ nav:
   - Developer's Guide:
     - 'developer/start-here.md'
     - 'developer/programming-language.md'
+    - Local Development:
+      - 'developer/local-dev/local-dev-env.md'
+      - 'developer/local-dev/pyenv.md'
+      - 'developer/local-dev/venv.md'
+      - 'developer/local-dev/docker.md'
     - 'developer/python-specifics.md'
     - 'developer/api-python.md'
     - 'developer/api-docker.md'
     - 'developer/versioning.md'
     - 'developer/writing-documentation.md'
-    - 'developer/faqs-for-developers.md'
     - 'developer/contributing.md'
     - 'developer/deployment.md'
     - 'developer/domain-names.md'
