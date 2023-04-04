@@ -42,14 +42,12 @@ nav:
     - 'developer/deployment.md'
     - 'developer/domain-names.md'
     - 'developer/git.md'
-  - Products & Services:
-    - RCPCH Census Platform: 
-      - 'products-services/census/about.md'
-      - 'products-services/census/deprivare.md'
-    - Hermes-Docker: 
-      - 'products-services/hermes/hermes-docker.md'
   - Projects:
-    - a
+    - RCPCH Census Platform: 
+      - 'projects/census/about.md'
+      - 'projects/census/deprivare.md'
+    - Hermes-Docker: 
+      - 'projects/hermes/hermes-docker.md'
   - Legal:
     - 'legal/copyright.md'
   - Technical:
