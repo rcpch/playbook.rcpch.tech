@@ -15,4 +15,3 @@ Some of these principles are taken directly from existing guidance on the practi
 * Adopt the best practices of the wider tech world.
 
 * If there is no clear advantage to one or other option, choose the option that leaves us the widest range of options in the future.
-
