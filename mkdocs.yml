@@ -34,19 +34,16 @@ nav:
       - 'developer/local-dev/pyenv.md'
       - 'developer/local-dev/venv.md'
       - 'developer/local-dev/docker.md'
-    - 'developer/python-specifics.md'
-    - 'developer/api-python.md'
-    - 'developer/api-docker.md'
+    - Python Specifics:
+      - 'developer/python-specific/python-specifics.md'
+      - 'developer/python-specific/requirements.md'
+      - 'developer/python-specific/tidy_imports.md'
     - 'developer/versioning.md'
     - 'developer/writing-documentation.md'
     - 'developer/contributing.md'
     - 'developer/deployment.md'
     - 'developer/domain-names.md'
     - 'developer/git.md'
-    - Python: #content overlaps with Contributors
-      - 'python/dependency-management.md'
-      - 'python/requirements.md'
-      - 'python/tidy_imports.md'
   - Products & Services:
     - RCPCH Census Platform: 
       - 'products-services/census/about.md'
