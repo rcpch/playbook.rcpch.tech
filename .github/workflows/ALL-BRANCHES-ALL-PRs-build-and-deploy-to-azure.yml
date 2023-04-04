@@ -13,7 +13,7 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - live
-      - 
+
 permissions:
   contents: write
   pull-requests: write # this permission is required in order to allow PR comment with staging URL
@@ -27,20 +27,15 @@ jobs:
       ENABLE_GIT_COMMITTERS: True # Makes git-committers an option, default disabled, when building locally
     name: Build and Deploy to Azure
     steps:
-      - name: Check out repo
       - uses: actions/checkout@v3
         with:
           submodules: true
-          
-      - name: Set up Python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
       - run: pip install git+https://${{ secrets.MATERIAL_FOR_MKDOCS_ACCESS_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       - run: pip install -r requirements.txt
       - run: mkdocs build
-        
-      - name: Deploy to Azure
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
