@@ -16,7 +16,7 @@ edit_uri: blob/live/docs
 dev_addr: "127.0.0.1:8002"
 
 nav:
-  - Home: "home.md"
+  - Home: "index.md"
   - About:
     - 'about/about.md'
     - 'about/authors.md'
@@ -91,7 +91,7 @@ theme:
     code: Roboto Mono
 
   # favicon: _assets/_images/dynamic-child-favicon.png
-  logo: _assets/_images/rcpch_logo.png
+  logo: 'docs/_assets/_images/rcpch_logo.png'
 
 # mkdocs plugins
 plugins:
