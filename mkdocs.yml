@@ -34,10 +34,7 @@ nav:
       - 'developer/local-dev/pyenv.md'
       - 'developer/local-dev/venv.md'
       - 'developer/local-dev/docker.md'
-    - Python Specifics:
-      - 'developer/python-specific/python-specifics.md'
-      - 'developer/python-specific/requirements.md'
-      - 'developer/python-specific/tidy_imports.md'
+    - 'developer/python-specific/python-specifics.md'
     - 'developer/versioning.md'
     - 'developer/writing-documentation.md'
     - 'developer/contributing.md'
