@@ -36,12 +36,12 @@ nav:
       - 'developer/local-dev/venv.md'
       - 'developer/local-dev/docker.md'
     - 'developer/python-specific/python-specifics.md'
+    - 'developer/git.md'
+    - 'developer/contributing.md'
     - 'developer/versioning.md'
     - 'developer/writing-documentation.md'
-    - 'developer/contributing.md'
     - 'developer/deployment.md'
     - 'developer/domain-names.md'
-    - 'developer/git.md'
   - Projects:
     - RCPCH Census Platform: 
       - 'projects/census/about.md'
