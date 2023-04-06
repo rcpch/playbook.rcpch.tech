@@ -63,7 +63,7 @@ Whilst working inside your feature branch, you should ensure your commits are as
 
 Finally, when your new feature is ready, you make a **Pull Request** to merge your feature branch into `development`.
 
-!!info
+!!!info "ONLY MAKE PR'S TO `development`"
     Ensure your **PR** is *not* made to `staging` or `live`.
 
 If your code passes review, your feature will be merged into `development`. Then, at regular intervals,  `development` will be merged into `staging`, and tested to ensure no errors. Finally, if everything works, `staging` will be merged into `live`. Each step of this cascade must pass rigorous testing and ensures that live clinical products and services do not fail. In a related fashion, we also keep our `development` as close to `live` as possible.
@@ -72,12 +72,76 @@ If you're looking for ideas, you can have a look at the **issues** for the proje
 
 ## Downloading VS Code Git Extensions
 
+Before the guided walkthrough, you should download the following Git extensions for VS Code:
+
+- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+- [GitLens - Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+
+[GitHub Desktop](https://desktop.github.com/) is another useful tool to help with the Git workflow but not necessary!
+
+
+
+Ultimately, Git works through writing commands in a terminal such as `git add .` or `git commit -m "my first commit!"`.
+
+However, with the VS Code extensions listed above, you can get away with using the Graphical User Interface (GUI) for almost everything you'll want to do. Under the hood, every click in these GUIs runs Git commands, which you can see in the `OUTPUT` of the VS Code terminal.
+
+These extensions:
+
+1. Simplify the Git process, allowing you to understand what's happening through a clear visual representation.
+2. Supercharge your productivity, by having a quick and easy processes to run Git commands.
+3. Reduce friction in development, through saving you countless hours and headaches related to problems like branch issues / detached HEADs etc.
+
 ## VS Code Git Example Walkthrough
 
-- adding self to a text file
+This walkthrough with guide you through the steps of our usual Git Workflow, all without having to type any Git commands yourself!
 
-## Branches
+You should already be familiar with how Git works. [Codecademy](https://www.codecademy.com/learn/learn-git) have a great interactive tutorial, or you can use one of the countless free ones online. Also, create a GitHub account if you don't already have one.
 
-## Pull Requests
+Though open-source allows everyone to **see** your code, it does not allow everyone to **change** your code.
+
+However, to make contributions, you *can* make your own copy of the entire codebase, make changes, and request the original developers to *pull* your changes into their code.
+
+### Making your first Open-Source Contribution to the RCPCH Incubator!
+
+The workflow has 5 steps:
+
+1. Fork the repository (repo) (onto your own GitHub)
+2. Clone the repo (onto your own computer)
+3. Create a branch from `development`
+4. Add your code, pushing your succinct, atomic commits to your own fork
+5. Submit a PR to `development`
+
+We will go through each step using a worked example. By the end, you will have made your first ever open-source healthcare technology contribution!
+
+### Step 1) Forking the repo
+
+To start, we will **fork** this website's repo. This means we will make an online copy of the website's repo in our own GitHub account.
+
+Go the the repo (https://github.com/rcpch/rcpch-incubator-playbook) and click on '`Fork`' at the top-right:
+
+![screenshot of fork](../_assets/_images/git-walkthrough-imgs/fork.png)
+
+Click on the green "Create fork" button.
+
+You should now see your own copy of the `rcpch-incubator-playbook`.
+
+### Step 2) Clone the repo
+
+Though we have an online copy of the repo, we need it on our actual machines to edit with VS Code. We do this by **cloning** the repo.
+
+Open VS Code.
+
+Assuming you've set up all the Git extensions in VS Code, open the Command Palette (`Ctrl/Cmd+Shift+P`) and type `>clone` (the `>` should automatically be inserted already), and click on `Git: Clone` -> `Clone from GitHub`.
+
+Click on your fork. It should already be near the top, but if it isn't, the default name is `YOUR-USERNAME/rcpch-incubator-playbook`.
+
+![](../_assets/_images/git-walkthrough-imgs/clone.png)
+
+VS Code should automatically open the project.
+
+### Step 3) Create a branch from `development`
+
+
 
 ## Tips and tricks
+
