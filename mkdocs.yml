@@ -36,7 +36,9 @@ nav:
       - 'developer/local-dev/venv.md'
       - 'developer/local-dev/docker.md'
     - 'developer/python-specific/python-specifics.md'
-    - 'developer/git.md'
+    - Guide to Git:
+      - 'developer/git/overview.md'
+      - 'developer/git/walkthrough.md'
     - 'developer/contributing.md'
     - 'developer/versioning.md'
     - 'developer/writing-documentation.md'
