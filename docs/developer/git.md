@@ -135,13 +135,82 @@ Assuming you've set up all the Git extensions in VS Code, open the Command Palet
 
 Click on your fork. It should already be near the top, but if it isn't, the default name is `YOUR-USERNAME/rcpch-incubator-playbook`.
 
-![](../_assets/_images/git-walkthrough-imgs/clone.png)
+![screenshot cloning](../_assets/_images/git-walkthrough-imgs/clone.png)
 
 VS Code should automatically open the project.
 
 ### Step 3) Create a branch from `development`
 
+Your '*feature*' branch should be based on the most recent codebase, which will be `development`.
 
+In the bottom left, click on the branch button (the default branch will be `live`).
+
+![screenshot branch](../_assets/_images/git-walkthrough-imgs/branch.png)
+
+Select `Create a new branch from...` and select `development` (it might be called `upsteam/development`).
+
+Name your branch whatever you wish e.g. `contribution`. The name should relate to whatever you're working on.
+
+The bottom left branch button should now show the name of you branch.
+
+Next, click on the 'Source Control' icon on the left. Click 'Publish Branch' to publish your branch to `origin` (which publishes it to your own fork of the repo).
+
+Then click on the 'View Git Graph' icon (above the commit message textbox), which will open a visual representation of all branches.
+
+![screenshot git graph](../_assets/_images/git-walkthrough-imgs/gitgraph.png)
+
+### Step 4) Adding your code and making a commit
+
+We're finally ready to make code changes.
+
+To keep it simple, you'll just add your name to the `open-source-contributors.md` file.
+
+Open up `open-source-contributors.md` (in `docs->developer->open-source-contributors.md`).
+
+On a single line, add:
+
+1. Your name
+2. A link to your social media, if you wish.
+3. Your favourite quote
+
+Save the file.
+
+You should see a "`1`" pop up next to the 'SOURCE CONTROL' icon on the left:
+
+![screenshot unsaved commit](../_assets/_images/git-walkthrough-imgs/unsave-commit.png)
+
+Navigating back to 'SOURCE CONTROL', we can see that we have 1 change to be committed. This is where the magic happens.
+
+First, click on '`Stage All Changes`', which will stage your edit of `open-source-contributors.md`, ready to be committed.
+
+Once staged, write your commit message in the textbox.
+
+!!!info "Tips on writing commit messages"
+
+    Ideally, commit messages should be concise (less than around 50 characters), descriptive, and written in the present-tense, starting with a verb.
+
+    Imagine every message starts with "This commit..." followed by your message. For example: 
+
+    *This commit...* `adds name to open-source-contributors.md`
+    
+    The `adds name to open-source-contributors.md` would be the actual commit message.
+
+You can write your own message, following these guidelines.
+
+Once written, click 'Commit' and 'Sync Changes' to push your local commit up to your online repo fork. If you go back to the Git Graph, you can see your commit added:
+
+![screenshot see commit](../_assets/_images/git-walkthrough-imgs/see-commit.png)
+
+!!!warning "GPG Verification"
+    Developers making significant contributions to the RCPCH Incubator Projects will require GPG signing on commits for verification.
+
+### Step 5) Making a Pull Request
+
+Now we've made our awesome feature, we will request it to be merged into the original codebase, through a **pull request**.
+
+Again in 'SOURCE CONTROL', click on the 'Create Pull Request' icon:
+
+![screenshot create PR](../_assets/_images/git-walkthrough-imgs/create-pr.png)
 
 ## Tips and tricks
 
