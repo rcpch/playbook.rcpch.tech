@@ -47,7 +47,7 @@ nav:
     - 'developer/domain-names.md'
   - Projects:
     - 'projects/repo-map.md'
-    - RCPCH Census Platform: 
+    - RCPCH Census Engine: 
       - 'projects/census/about.md'
       - 'projects/census/deprivare.md'
     - Hermes-Docker: 
