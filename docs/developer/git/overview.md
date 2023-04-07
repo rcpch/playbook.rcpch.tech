@@ -39,13 +39,15 @@ This is an overview of our Git Workflow. In the next section, there is a guided 
 
 If you're used to Git, the TL/DR of our Workflow is:
 
+![Git Workflow](../../_assets/_images/git-walkthrough-imgs/git-workflow-diagram.svg)
+
 1. There are **3 primary branches**: `live`, `staging`, `development`
 2. To contribute, you should make **feature** branches off `development` and make **PR**s back to `development`.
 3. At regular intervals, merges will occur in order: `development -> staging -> live`
 
 We also use GitHub Projects for product management and productivity.
 
-### The Git Workflow
+### Our Git Workflow
 
 Our Git Workflow centres around ensuring our live code never breaks through bugs due to various security checks in the code chain.
 

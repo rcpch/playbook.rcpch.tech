@@ -26,6 +26,7 @@ nav:
     - 'principles/general-principles.md'
     - 'principles/open-source.md'
     - 'principles/security.md'
+    - 'principles/12fa.md'
     - 'principles/tools.md'
   - Developer's Guide:
     - 'developer/start-here.md'
@@ -45,7 +46,8 @@ nav:
     - 'developer/deployment.md'
     - 'developer/domain-names.md'
   - Projects:
-    - RCPCH Census Platform: 
+    - 'projects/repo-map.md'
+    - RCPCH Census Engine: 
       - 'projects/census/about.md'
       - 'projects/census/deprivare.md'
     - Hermes-Docker: 
@@ -113,6 +115,32 @@ plugins:
   - macros
   - search
   - render_swagger
+  - with-pdf:
+        cover_title: RCPCH Incubator Playbook
+        cover_subtitle: Complete Manual
+        toc_title: Table Of Contents
+        #heading_shift: false
+        #toc_level: 3
+        #ordered_chapter_level: 2
+        #excludes_children:
+        #    - 'release-notes/:upgrading'
+        #    - 'release-notes/:changelog'
+        #exclude_pages:
+        #    - 'bugs/'
+        #    - 'appendix/contribute/'
+        #convert_iframe:
+        #    - src: IFRAME SRC
+        #      img: POSTER IMAGE URL
+        #      text: ALTERNATE TEXT
+        #    - src: ...
+        #two_columns_level: 3
+        #render_js: true
+        #headless_chrome_path: headless-chromium
+        output_path: pdf/incubator-playbook.pdf
+        enabled_if_env: ENABLE_PDF_EXPORT
+        #debug_html: true
+        #show_anchors: true
+        #verbose: true
 
 # additional markdown features
 markdown_extensions:
@@ -134,6 +162,7 @@ markdown_extensions:
   - pymdownx.superfences
   - toc:
       permalink: false
+  - tables
 
 # set extra CSS file
 extra_css:
