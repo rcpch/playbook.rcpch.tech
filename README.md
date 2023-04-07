@@ -27,6 +27,6 @@ Suggestions, issues, fixes and updated content are all welcome, as are discussio
 
 3. Discuss in an issue.
 
-![git workflow diagram](docs/_assets._images/git-walkthrough-imgs/git-workflow-diagram.svg)
+![git workflow diagram](docs/_assets/_images/git-walkthrough-imgs/git-workflow-diagram.svg)
 
 
