@@ -27,6 +27,7 @@ nav:
     - 'principles/open-source.md'
     - 'principles/security.md'
     - 'principles/tools.md'
+    - 'principles/12fa.md'
   - Developer's Guide:
     - 'developer/start-here.md'
     - 'developer/programming-language.md'
