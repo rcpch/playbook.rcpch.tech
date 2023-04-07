@@ -16,7 +16,7 @@ edit_uri: blob/live/docs
 dev_addr: "127.0.0.1:8002"
 
 nav:
-  - Home: "index.md"
+  - "index.md"
   - About:
     - 'about/about.md'
     - 'about/authors.md'
