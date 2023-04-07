@@ -1,17 +1,62 @@
-# General Principles
+---
+title: General Principles
+reviewers: Dr Anchit Chandran
+---
 
-Some of these principles are taken directly from existing guidance on the practice of medicine. Because medical software is part of medicine.
+We have set some general principles that combine our organisation's philosophy with tech best-practice and guidance on good medical practice. It is essential to remember that medical software is a part of medicine.
 
-* First, do no harm
+These principles are:
 
-* Don't get into holy wars
+- First, do no harm
 
-* Loose consensus and running code is better than neverending committees and no code.
+- No Holy Wars
 
-* Experiments in code are better than lengthy debate. It's OK to throw away an experiment once it's proven one way or another.
+- Loose consensus with *running* code always beats Death-By-Committee and *no* code
 
-* Choose options that are well supported in the wider tech world.
+- Experimental evidence outweighs theoretical (lengthy) debate
 
-* Adopt the best practices of the wider tech world.
+- Use well-supported tech tools
 
-* If there is no clear advantage to one or other option, choose the option that leaves us the widest range of options in the future.
+- All else equal, choose options which generate the most future opportunities
+
+## First, Do No Harm
+
+Borrowed from the Hippocratic Oath, this principle emphasises avoiding negative consequences in healthcare software development. Being mindful of how changes can affect end-users,  often patients, is crucial. Every change, feature, or update can lead to new risks and vulnerabilities.
+
+Our ultimate priority is safety, transparency, and reliability.
+
+## No Holy Wars
+
+Build rationally, not emotionally.
+
+Avoid unproductive arguments over the "right" technology, framework, or methodology. Instead, focus on the needs of the current project, team, and users; choose tools which work best for the context and be willing to try new solutions.
+
+## Loose consensus with *running* code always beats Death-By-Committee and *no* code
+
+Collaboration and feedback are important in this field, but there are pitfalls related to the over-reliance on consensus-building and planning.
+
+It's better to have a working Minimum Viable Product (MVP), which is iteratively improved, rather than wasting effort in exhaustive planning or deliberation.
+
+Focus on delivering value quickly, using feedback and testing to improve over time.
+
+Experiments allow faster iteration and can be disposed of if required.
+
+## Experimental evidence outweighs theoretical (lengthy) debate
+
+The foundation of the scientific method is: *if it disagrees with experiment, it's wrong*.
+
+Regardless of the length of middle-manager speculative waffle, answers only come from building products and rigorous testing of assumptions to inform decision-making.
+
+## Use well-supported tech tools
+
+Instead of relying on the latest fad or trendy framework, stick to well-supported, well-maintained and widely used tools with a proven track record of success.
+
+This saves many headaches, preventing potential clinical risks.
+
+## All else equal, choose options which generate the most future opportunities
+
+Often, there is no clear best decision.
+
+If all decisions hold comparable advantages, adopt a long-term mindset by considering future implications. Choose options which confer the most flexibility, adaptability, and scalability.
+
+This allows investing in solutions which can pivot with ever-changing environments.
