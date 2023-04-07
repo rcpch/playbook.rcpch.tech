@@ -13,7 +13,7 @@ If you are a budding Clinician Who Codes, you should learn Python.
 
 !!!quote "Blog Posts related to learning Python"
     - Dr Marcus Baw on ['Why Python...'](https://marcus-baw.medium.com/why-we-chose-python-for-the-rcpch-digital-growth-charts-project-2d61e2766c3b)
-    - Dr Anchit Chandran on ['What learning to code actually means'](https://peerr.io/article/what-does-learn-to-code-actually-mean-89zcvn)
+    - Dr Anchit Chandran on ['What learning to code actually means'](https://medicode.info/code/#what-does-learning-to-code-actually-mean)
 
 ## What is Python?
 

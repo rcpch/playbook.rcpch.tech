@@ -11,17 +11,7 @@ You can contact the primary developers to discuss The Incubator using [Signal or
 
 ### How to contribute
 
-- Fork the repository to your own GitHub account.
-  
-- Set up your development environment (ideally using our instructions [here](./local-dev/local-dev-env.md) for maximum compatibility with our development environments).
-  
-- You should discuss the proposed change with our team because we can only accept pull requests with an acknowledged need for a new feature or fix.
-  
-- We can discuss our recommendations for implementing the new feature for the maximum potential 'mergeability' of your PR.
-  
-- Once you are ready to show us your work, create a pull request on our repo detailing the change and details about the fix or feature. PRs that affect the calculations or any other 'mission critical' part of the code will need suitable tests which we can run.
-  
-- We will endeavour to review and merge in a reasonable time frame but will usually not merge straight into `master`; instead, we will merge into an upcoming release branch.
+See [Overview of Git Workflow](http://127.0.0.1:8002/developer/git/overview/#overview-of-github-workflow).
 
 ## Intellectual Property (IP) of contributions
 
