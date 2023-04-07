@@ -19,6 +19,8 @@ However, to make contributions, you *can* make your copy of the entire codebase,
 
 The workflow has five steps:
 
+![Git Workflow](../../_assets/_images/git-walkthrough-imgs/git-workflow-diagram.svg)
+
 1. Fork the repository (repo) (onto your own GitHub)
 2. Clone the repo (onto your computer)
 3. Create a branch from `development`
