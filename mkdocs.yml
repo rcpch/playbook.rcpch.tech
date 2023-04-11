@@ -18,7 +18,6 @@ dev_addr: "127.0.0.1:8002"
 nav:
   - "index.md"
   - About:
-    - 'about/about.md'
     - 'about/authors.md'
     - 'about/contact.md'
     - 'about/acknowledgements.md'
