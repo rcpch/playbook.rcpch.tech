@@ -51,7 +51,7 @@ nav:
       - 'projects/census/deprivare.md'
     - Hermes-Docker: 
       - 'projects/hermes/hermes-docker.md'
-  # - Legal:
+  - Legal: 'legal/copyright.md'
 
   # - Technical:
 
