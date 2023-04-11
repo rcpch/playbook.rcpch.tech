@@ -19,9 +19,3 @@ reviewers:
 Email our Commercial Team to ask questions about project support and pricing tiers, invoicing, contracts and other commercial matters.
 
 :material-email: <commercial@rcpch.ac.uk>
-
-## General Enquiries
-
-For other enquiries, or if you are not sure how best to ask us, email our Growth Charts enquiries team.
-
-:material-email: <growth.digital@rcpch.ac.uk>
