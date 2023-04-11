@@ -51,29 +51,10 @@ nav:
       - 'projects/census/deprivare.md'
     - Hermes-Docker: 
       - 'projects/hermes/hermes-docker.md'
-  - Legal:
-    - 'legal/copyright.md'
-  - Technical:
-    - 'technical/security.md'
-    - 'technical/data-security-protection-toolkit.md'
-    - 'technical/status.md'
-  - Clinical Safety:
-    - 'safety/overview.md'
-    - Clinical Safety File:
-      - 'safety/csmf/clinical-risk-mgmt-system.md'
-      - 'safety/csmf/clinical-risk-mgmt-plan.md'
-      - 'safety/csmf/clinical-safety-case-report.md'
-      - 'safety/csmf/hazard-log.md'
-      - 'safety/csmf/third-party-tools-safety-assmt.md'
-      - 'safety/csmf/license.md'
-    - DTAC:
-      - 'safety/dtac.md'
-    - Medical Devices Registration:
-      - 'safety/medical-device-reg/mhra.md'
-      - 'safety/medical-device-reg/essential-req.md'
-      - 'safety/medical-device-reg/doc-api.md'
-      - 'safety/medical-device-reg/mdr-technical-docs.md'
-    - Download: 'safety/download.md'
+  # - Legal:
+
+  # - Technical:
+
   
 
 # theme settings, fonts, colours
