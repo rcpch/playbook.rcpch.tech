@@ -16,6 +16,10 @@ Some generic useful tools and tips, sourced from the [Baw Medical Discourse](htt
 * [CopyQ (cross platform)](https://hluk.github.io/CopyQ/)
 * Windows: [ClipClip](https://clipclip.com/)
 
+# Remote Working Tools
+
+- Access documentation offline (particualrly good when you don't have stable internet access!) with [Zeal](https://zealdocs.org/)
+
 ## Tab switching
 
 * [CLUT (Chrome browser extension)](https://chrome.google.com/webstore/detail/clut-cycle-last-used-tabs/cobieddmkhhnbeldhncnfcgcaccmehgn?hl=en)
