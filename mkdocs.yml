@@ -38,6 +38,7 @@ nav:
     - Guide to Git:
       - 'developer/git/overview.md'
       - 'developer/git/walkthrough.md'
+      - 'developer/git/signed-commits.md'
     - 'developer/contributing.md'
     - 'developer/versioning.md'
     - 'developer/writing-documentation.md'
