@@ -1,0 +1,14 @@
+version: "3.10"
+
+services:
+  mkdocs:
+    build: .
+    volumes:
+      - .:/app/
+    ports:
+      - 8001:8001
+    environment:
+      - ENABLE_GIT_COMMITTERS="True" # Disables git committer extension in local dev
+      - ENABLE_PDF_EXPORT=1 # Disables automatic PDF generation in local dev
+    command: mkdocs serve --config-file documentation/mkdocs.yml
+    restart: always
