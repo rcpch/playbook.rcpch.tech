@@ -11,7 +11,13 @@ You can contact the primary developers to discuss The Incubator using [Signal or
 
 ### How to contribute
 
-See [Overview of Git Workflow](http://127.0.0.1:8002/developer/git/overview/#overview-of-github-workflow).
+See [Overview of Git Workflow](../developer/git/overview/#overview-of-github-workflow).
+
+You can start a local development of these docs by simply running the following Docker bash script in the top level directory:
+
+```bash
+s/docker-up
+```
 
 ## Intellectual Property (IP) of contributions
 
