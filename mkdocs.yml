@@ -39,6 +39,8 @@ nav:
       - 'developer/git/overview.md'
       - 'developer/git/walkthrough.md'
       - 'developer/git/signed-commits.md'
+    - 'developer/security/ssh-keys.md'
+    - 'developer/security/ubuntu-hardening.md'
     - 'developer/contributing.md'
     - 'developer/versioning.md'
     - 'developer/writing-documentation.md'
