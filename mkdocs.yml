@@ -16,7 +16,7 @@ edit_uri: blob/live/docs
 dev_addr: "0.0.0.0:8001"
 
 nav:
-  - The RCPCH Incubator Playbook:
+  - Home:
     - "index.md"
     - 'about/authors.md'
     - 'about/contact.md'
