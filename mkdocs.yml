@@ -51,9 +51,6 @@ nav:
     - Hermes-Docker: 
       - 'projects/hermes/hermes-docker.md'
   - Legal: 'legal/copyright.md'
-
-  # - Technical:
-
   
 
 # theme settings, fonts, colours
