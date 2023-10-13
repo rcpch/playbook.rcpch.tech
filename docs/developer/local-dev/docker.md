@@ -23,21 +23,27 @@ It's completely worth it to save many hours of frustration and headaches!
 
 ## Docker Example
 
-See the [example in the RCPCH Audit Engine](https://github.com/rcpch/rcpch-audit-engine/blob/live/docker-compose.yml) to see how this works in practice.
+See the [`docker-compose` example in the RCPCH Audit Engine repository](https://github.com/rcpch/rcpch-audit-engine/tree/development) to see how this works in practice.
 
-In this project, we reduce confusing development environment steps to one command.
+In this project, we reduce confusing development environment setup to one command, which you type inside the top-level directory:
+
+```shell
+s/docker-up
+```
+
+This is a small bash script which runs:
 
 ```shell
 docker compose up
 ```
 
-This also ensures that developers use the same hand-crafted development environment, which can update if required.
+Through this, we ensure developers use the same hand-crafted development environment, which can update if required.
 
 The only downside is that sometimes you need to remember your server is *inside* the Docker container and run commands *outside* the container, and then puzzle over why it's not working!
 
 ## Docker and `docker compose` tips
 
-!!!info
+!!! info "`docker compose` vs `docker-compose`"
     After a recent update, it's `docker compose` (with a space, *not* a hyphen).
 
     It used to be `docker-compose` for a long time; even some recent tutorials may have this wrong.
@@ -51,3 +57,9 @@ docker compose exec [CONTAINER_NAME] [COMMAND]
 ```shell title="Example `docker-compose` command to run the Django development server"
 docker compose exec web python manage.py runserver
 ```
+
+
+!!! info "VSCode Docker GUI Extension"
+    The VSCode Docker extension allows you to directly attach a shell to Docker containers and view logs.
+
+    This allows you to run terminal commands 'natively' within the container's context, meaning you no longer need to prepend `docker compose exec [CONTAINER_NAME]` before each command
