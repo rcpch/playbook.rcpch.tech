@@ -83,62 +83,46 @@ theme:
 # mkdocs plugins
 plugins:
   - git-committers:
-      repository: rcpch/digital-growth-charts-documentation
+      repository: rcpch/rcpch-incubator-playbook
       branch: live
       enabled: !ENV [ENABLE_GIT_COMMITTERS, false] # makes Git Committers optional
   # - git-revision-date-localized:
   #     enable_creation_date: true
-  - macros
   - search
-  - render_swagger
   - with-pdf:
-        cover_title: RCPCH Incubator Playbook
-        cover_subtitle: Complete Manual
-        toc_title: Table Of Contents
-        #heading_shift: false
-        #toc_level: 3
-        #ordered_chapter_level: 2
-        #excludes_children:
-        #    - 'release-notes/:upgrading'
-        #    - 'release-notes/:changelog'
-        #exclude_pages:
-        #    - 'bugs/'
-        #    - 'appendix/contribute/'
-        #convert_iframe:
-        #    - src: IFRAME SRC
-        #      img: POSTER IMAGE URL
-        #      text: ALTERNATE TEXT
-        #    - src: ...
-        #two_columns_level: 3
-        #render_js: true
-        #headless_chrome_path: headless-chromium
-        output_path: pdf/incubator-playbook.pdf
-        enabled_if_env: ENABLE_PDF_EXPORT
-        #debug_html: true
-        #show_anchors: true
-        #verbose: true
+      back_cover: false
+      cover_title: RCPCH Incubator Playbook
+      cover_subtitle: Complete Manual
+      exclude_pages:
+        - 'home/download/'
+      output_path: pdf/rcpch-epilepsy12-full-documentation.pdf
+      enabled_if_env: ENABLE_PDF_EXPORT
+      #debug_html: true
+      #show_anchors: true
+      #verbose: true
 
 # additional markdown features
 markdown_extensions:
   - abbr
   - admonition
   - attr_list
-  - md_in_html #insiders
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-      emoji_index: !!python/name:materialx.emoji.twemoji
   - pymdownx.highlight
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.snippets:
       check_paths: true
-      auto_append:
-        - includes/_abbreviations.md
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
-      permalink: false
-  - tables
+      permalink: true
 
 # set extra CSS file
 extra_css:
