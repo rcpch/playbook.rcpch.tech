@@ -7,6 +7,8 @@ We build on the style standards in the current [PEP 8 style guide](https://peps.
 
 These sections detail the Incubator-flavour of style choices.
 
+We use the [Black](https://github.com/psf/black) code formatter to ensure consistency, nad the [Pylint](https://pypi.org/project/pylint/) linter to ensure code quality.
+
 ## Package Management and Requirements files/folders
 
 We use the `pip` package manager.
