@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 ---
+
 title: Open Source
 reviewers: Dr Anchit Chandran
 ---
+
+=======
+
+# Open Source
+>>>>>>>
+>>>>>>> 5113a63 (updated section on open source)
 
 The RCPCH Incubator believes open-source software is significantly safer, more secure, and more scientific than proprietary or closed-source models, especially in child health and international development.
 
@@ -27,26 +35,34 @@ Firstly, open-source software is transparent and centres around explicit trust. 
 
 The RCPCH is a charity focusing on international development and improvements in global child health.
 
+<<<<<<< HEAD
 Making all healthcare code open-source ensures the most comprehensive remit for safe improvement and prevents innovation stagnation. In addition, it enables strong collaboration by tapping into international community support, allowing value to be delivered worldwide.
 
-All children, regardless of geographical distance, deserve equitable health standards.
+All children, regardless of geographical distance, deserve equitable health standards
+=======
+
+## Common open source fallacies
+>>>>>>>
+>>>>>>> 5113a63 (updated section on open source)
 
 ### Proof by tech-sector trends
 
 The largest, most influential technology companies are enlarging their open-source footprints. A few honourable mentions include:
 
 - Facebook
-    - Developed GraphQL and React
+  - Developed GraphQL and React
 - Google
-    - Developed Android, TensorFlow, and Kubernetes
-    - Support Golang
+  - Developed Android, TensorFlow, and Kubernetes
+  - Support Golang
 - Microsoft
-    - Developed Visual Studio Code
-    - Acquired GitHub
+  - Developed Visual Studio Code
+  - Acquired GitHub
 
 ## The Business Case for Open-Source
 
 A common misconception is that open-source is not commercially sustainable. How can you be sustainable if you give your IP to the world for free?
+
+Open source software is possible to be commercialised in many of the same ways as proprietary software. There are many examples in the wider tech world of successful businesses releasing open source code - Wordpress.org, Discourse.org, and of course Red Hat and Canonical.
 
 Open-source software is *both* the only ethical solution for healthcare, *and* offers non-exploitative business models, proven through The RCPCH Incubator's ventures and by enormously profitable businesses like WordPress, Discourse, Red Hat and Canonical.
 
@@ -68,4 +84,8 @@ This is an understandable viewpoint. However, there are three irrational misconc
 
 **3) Open source is inherently insecure** - in truth, there is *no inherent difference in security* between open and closed source. The terms only relate to codebase visibility: it is down to the people to provide protection. Arguably, developing under the mindset your attackers *can* see your code will bake in much higher standards of security practice from the project's beginning. Moreover, open-source technologies benefit from larger teams of developers via community contributions, allowing more robust testing and bug identification.
 
-While both types of software have valid pros and cons, neither is intrinsically more secure.
+While both types of software have valid pros and cons, neither is intrinsically more secure
+
+### "The source code is an intangible asset which our finance director has valued at 10 million pounds"
+
+This is simply creative accounting intended to drive up the net worth of an organisation on paper. It is not related to any measure of value of the code. The most effective way to realise return on investment for software is to provide robust, trusted services around a secure, well-featured open source code-base.
