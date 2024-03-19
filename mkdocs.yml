@@ -48,21 +48,21 @@ nav:
     - 'developer/domain-names.md'
   - Projects:
     - 'projects/repo-map.md'
-    - RCPCH Census Engine: 
+    - RCPCH Census Engine:
       - 'projects/census/about.md'
       - 'projects/census/deprivare.md'
-    - Hermes-Docker: 
+    - Hermes-Docker:
       - 'projects/hermes/hermes-docker.md'
   - Legal: 'legal/copyright.md'
-  
+
 
 # theme settings, fonts, colours
 theme:
   name: material
   #custom_dir: rcpch-theme
   features:
-    - content.action.edit # explicitly adds edit button (Material4MkDocs9.0) 
-    - content.action.view # explicitly adds view button (Material4MkDocs9.0) 
+    - content.action.edit # explicitly adds edit button (Material4MkDocs9.0)
+    - content.action.view # explicitly adds view button (Material4MkDocs9.0)
     - navigation.expand
     - navigation.footer # explicitly adds footer prev/next (Material4MkDocs9.0)
     - navigation.instant
@@ -80,6 +80,7 @@ theme:
     text: Montserrat
     code: Roboto Mono
 
+  favicon: _assets/_images/dynamic-child-favicon.pn
   logo: '_assets/_images/rcpch_logo.png'
 
 # mkdocs plugins
