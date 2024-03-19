@@ -1,7 +1,7 @@
 # This Action builds the documentation site in mkdocs
 # and pushes it to Azure from where it is deployed
-#
 # Azure will also build a preview site for any PRs against LIVE or branches
+# https://bawmedical.co.uk/t/763
 
 name: ALL-BRANCHES-ALL-PRs-build-and-deploy-to-azure.yml
 
