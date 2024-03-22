@@ -1,4 +1,4 @@
-version: "3.11" # Docker Compose specification version! NOT the Python version
+version: "3.8" # Docker Compose specification version! NOT the Python version
 
 services:
   mkdocs:
