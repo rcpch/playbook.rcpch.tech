@@ -1,4 +1,4 @@
-version: "3.8" # Docker Compose specification version! NOT the Python version
+# docker compose file for playbook.rcpch.tech (for local development)
 
 services:
   mkdocs:
