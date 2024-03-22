@@ -80,7 +80,7 @@ theme:
     text: Montserrat
     code: Roboto Mono
 
-  favicon: _assets/_images/dynamic-child-favicon.pn
+  favicon: _assets/_images/dynamic-child-favicon.png
   logo: '_assets/_images/rcpch_logo.png'
 
 # mkdocs plugins
