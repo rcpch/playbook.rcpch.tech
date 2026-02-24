@@ -28,7 +28,7 @@ jobs:
     name: Build and Deploy to Azure
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 # latest as at March 2024
+        uses: actions/checkout@v6 # latest as at March 2024
         with:
           submodules: true
       - name: Setup Python
