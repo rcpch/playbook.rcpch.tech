@@ -2,7 +2,7 @@
 site_name: RCPCH Incubator Playbook
 site_description: Manual and Reference for the RCPCH Incubator Team
 site_author: The Royal College of Paediatrics and Child Health
-site_url: https://docs.epilepsy12.rcpch.ac.uk
+site_url: https://playbook.rcpch.tech
 
 # copyright information which is shown in the footer
 copyright: Copyright &copy; 2024 Royal College of Paediatrics and Child Health (RCPCH)
@@ -10,7 +10,7 @@ copyright: Copyright &copy; 2024 Royal College of Paediatrics and Child Health (
 # these lines configure the 'GitHub repo' widget on the top right
 repo_url: https://github.com/rcpch/rcpch-incubator-playbook
 repo_name: rcpch/rcpch-incubator-playbook
-edit_uri: blob/live/docs
+edit_uri: blob/development/docs
 
 # `mkdocs serve` serves the documentation at custom port (to avoid clashing with other services we commonly run)
 dev_addr: "0.0.0.0:8000"
@@ -31,7 +31,6 @@ nav:
     - 'developer/programming-language.md'
     - Local Development:
       - 'developer/local-dev/local-dev-env.md'
-      - 'developer/local-dev/pyenv.md'
       - 'developer/local-dev/venv.md'
       - 'developer/local-dev/docker.md'
     - 'developer/python-specific/python-specifics.md'
@@ -89,8 +88,6 @@ plugins:
       repository: rcpch/rcpch-incubator-playbook
       branch: live
       enabled: !ENV [ENABLE_GIT_COMMITTERS, false] # makes Git Committers optional
-  # - git-revision-date-localized:
-  #     enable_creation_date: true
   - search
   - with-pdf:
       back_cover: false
@@ -117,6 +114,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.snippets:
       check_paths: true
+      auto_append:
+        - ../includes/_abbreviations.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

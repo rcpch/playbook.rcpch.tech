@@ -3,11 +3,11 @@ title: Writing Documentation
 reviewers: Dr Anchit Chandran
 ---
 
-Where possible, we have brought together documentation relating to the Incubator into this one MkDocs site, published at [INSERT LINK](.)
+Where possible, we have brought together documentation relating to the Incubator into this one MkDocs site, published at <https://playbook.rcpch.tech>.
 
 ## Material for MkDocs
 
-This site is created using the MkDocs documentation framework. It uses the '*Material for MkDocs*' theme, which adds a number of extra features and a more modern appearance. We use the *Material for MkDocs Insiders* edition, allowing us to support the project, whilst getting a few neat early-access features.
+This site is created using the MkDocs documentation framework. It uses the '*Material for MkDocs*' theme, which adds a number of extra features and a more modern appearance.
 
 As you’d expect, there is delightful documentation for both projects: [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), and for the underlying [MkDocs](https://www.mkdocs.org/), on which it’s built. At times, you may need to refer to both for different features.
 
@@ -19,7 +19,7 @@ Use other pages within this repo to get ideas on the style and the features avai
 
 ### Continuous Integration via GitHub Actions
 
-Any changes to the `live` branch of the documentation repository trigger a [GitHub Action](https://github.com/rcpch/rcpch-incubator-playbook/blob/live/.github/workflows/ALL-BRANCHES-ALL-PRs-build-and-deploy-to-azure.yml). This runs Material for MkDocs in a temporary application container, builds the site from the Markdown source into a set of static HTML pages, and [publishes the site to Azure ADD LINK]().
+Any changes to the `live` branch of the documentation repository trigger a [GitHub Action](https://github.com/rcpch/rcpch-incubator-playbook/blob/live/.github/workflows/ALL-BRANCHES-ALL-PRs-build-and-deploy-to-azure.yml). This runs Material for MkDocs in a temporary application container, builds the site from the Markdown source into a set of static HTML pages, and publishes the site to Azure.
 
 This occurs whether changes are made using online or local, offline editing methods.
 
@@ -41,22 +41,14 @@ More experienced coders can `git clone` the repo and make changes offline on the
 
 #### (Mac / Linux) Setting up a development environment
 
-Create a virtualenv for the Python modules:
+Create a virtual environment for the Python modules:
 
-* For info on setting up Pyenv see [Python setup](../developer/api-python.md)
-* Any recent Python version works, we tend to use 3.11
-* Calling it `mkdocs-3.11` will enable Pyenv to automatically select it when you navigate to the directory, because this will match the contents of the `.python-version` file in the root of the project.
-
-```console
-pyenv virtualenv 3.11 mkdocs-3.11
-```
-
-!!! info "MkDocs **Insiders** Edition"
-
-    This project uses Material for MkDocs **Insiders** Edition. To install this, you will need a GitHub token which is available (for RCPCH team only) from Marcus Baw (pacharanero). If you have the token, you can manually run the following command to install Insiders. If you can't access the token, see the comments in the `requirements.txt` file.
+* Use `venv` (see [Venv](./local-dev/venv.md))
+* Use a recent Python 3.x (the Docker image uses Python 3.12)
 
 ```console
-pip install git+https://<INSERT_GH_TOKEN_HERE>@github.com/squidfunk/mkdocs-material-insiders.git
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -70,7 +62,7 @@ MkDocs will tell you what URL you can view the site on, which is usually `localh
 
 #### (Windows) Setting up a development environment
 
-Create a virtual environment with `virtualenv`. See [Windows - install virtualenv](api-python.md#windows---installing-virtualenv) if you need help setting up.
+Create a virtual environment with `venv`. See [Venv](./local-dev/venv.md) if you need help setting up.
 
 Then, with [GitHub Desktop](https://desktop.github.com/), clone the repo using the following url
 
@@ -84,18 +76,7 @@ https://github.com/rcpch/rcpch-incubator-playbook.git
 cd rcpch-incubator-playbook
 ```
 
-Install the dependencies.
-
-!!! info "MkDocs **Insiders** Edition"
-
-    This project uses Material for MkDocs **Insiders** Edition. To install this, you will need a GitHub token which is available (for RCPCH team only) from Marcus Baw (pacharanero). If you have the token, you can manually run this command to install Insiders:
-
-```console
-pip install git+https://<INSERT_GH_TOKEN_HERE>@github.com/squidfunk/mkdocs-material-insiders.git
-pip install -r requirements.txt
-```
-
-If you can't get access to the token, please see the comments in the `requirements.txt` file and run:
+Install the dependencies:
 
 ```console
 pip install -r requirements.txt
@@ -128,7 +109,7 @@ You should always build the site at least once with both PDF export and Git Comm
 
 ## Adding a new page
 
-* Create a new Markdown file in a subfolder in the `docs` folder. There is now also a template to get you started, in `docs/_utilities/page-template.md`, which you would copy into your new page file.
+* Create a new Markdown file in a subfolder in the `docs` folder. Use a similar existing page as a starting point, then adjust the content and front matter.
 
 !!! info
     Because of the way we have set up the left sidebar navigation, new pages are **not** automatically added to the navigation.

@@ -1,4 +1,4 @@
-# Base Docker image Official Python 3.10 | Debian
+# Base Docker image Official Python 3.12 | Debian
 FROM python:3.12
 
 # Set 'build-time' environment variables
@@ -21,7 +21,6 @@ RUN pip install --upgrade pip && \
 
 # Set safe working directory for git
 RUN git config --global --add safe.directory /app
-
 
 
 
