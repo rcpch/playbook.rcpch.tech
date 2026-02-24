@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 ---
-
 title: Open Source
 reviewers: Dr Anchit Chandran
 ---
-
-=======
-
-# Open Source
->>>>>>>
->>>>>>> 5113a63 (updated section on open source)
 
 The RCPCH Incubator believes open-source software is significantly safer, more secure, and more scientific than proprietary or closed-source models, especially in child health and international development.
 
@@ -35,28 +27,21 @@ Firstly, open-source software is transparent and centres around explicit trust. 
 
 The RCPCH is a charity focusing on international development and improvements in global child health.
 
-<<<<<<< HEAD
 Making all healthcare code open-source ensures the most comprehensive remit for safe improvement and prevents innovation stagnation. In addition, it enables strong collaboration by tapping into international community support, allowing value to be delivered worldwide.
 
-All children, regardless of geographical distance, deserve equitable health standards
-=======
+All children, regardless of geographical distance, deserve equitable health standards.
 
 ## Common open source fallacies
->>>>>>>
->>>>>>> 5113a63 (updated section on open source)
+
+TODO:
 
 ### Proof by tech-sector trends
 
 The largest, most influential technology companies are enlarging their open-source footprints. A few honourable mentions include:
 
-- Facebook
-  - Developed GraphQL and React
-- Google
-  - Developed Android, TensorFlow, and Kubernetes
-  - Support Golang
-- Microsoft
-  - Developed Visual Studio Code
-  - Acquired GitHub
+- Facebook: Developed GraphQL and React.
+- Google: Developed Android, TensorFlow, and Kubernetes. Supports Golang.
+- Microsoft: Developed Visual Studio Code. Acquired GitHub.
 
 ## The Business Case for Open-Source
 
@@ -78,13 +63,13 @@ If you reveal all of your code, are you not easily vulnerable to security exploi
 
 This is an understandable viewpoint. However, there are three irrational misconceptions baked into the premise:
 
-**1) Security relies on obscurity** - some systems *do*, but these are *bad*, *dangerous* and *outdated*. Effective, widely-used industry best standards enable security even with full visibility (see blockchain technology for one example).
+1. **Security relies on obscurity.** Some systems *do*, but these are *bad*, *dangerous* and *outdated*. Effective, widely-used industry best standards enable security even with full visibility (see blockchain technology for one example).
 
-**2) Closed source means outsiders can't see your code** - slapping on the label of closed source doesn't prevent hackers from leaking your code. Many multinational companies are frequently attacked and have their codebase revealed. Investing resources in preventing these leaks is an unnecessary, perhaps Sisyphean endeavour.
+2. **Closed source means outsiders can't see your code.** Slapping on the label of closed source doesn't prevent hackers from leaking your code. Many multinational companies are frequently attacked and have their codebase revealed. Investing resources in preventing these leaks is an unnecessary, perhaps Sisyphean endeavour.
 
-**3) Open source is inherently insecure** - in truth, there is *no inherent difference in security* between open and closed source. The terms only relate to codebase visibility: it is down to the people to provide protection. Arguably, developing under the mindset your attackers *can* see your code will bake in much higher standards of security practice from the project's beginning. Moreover, open-source technologies benefit from larger teams of developers via community contributions, allowing more robust testing and bug identification.
+3. **Open source is inherently insecure.** In truth, there is *no inherent difference in security* between open and closed source. The terms only relate to codebase visibility: it is down to the people to provide protection. Arguably, developing under the mindset your attackers *can* see your code will bake in much higher standards of security practice from the project's beginning. Moreover, open-source technologies benefit from larger teams of developers via community contributions, allowing more robust testing and bug identification.
 
-While both types of software have valid pros and cons, neither is intrinsically more secure
+While both types of software have valid pros and cons, neither is intrinsically more secure.
 
 ### "The source code is an intangible asset which our finance director has valued at 10 million pounds"
 
