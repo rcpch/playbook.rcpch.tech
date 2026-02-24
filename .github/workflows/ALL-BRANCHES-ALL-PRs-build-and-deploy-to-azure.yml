@@ -32,7 +32,7 @@ jobs:
         with:
           submodules: true
       - name: Setup Python
-        uses: actions/setup-python@v5 # latest as at March 2024
+        uses: actions/setup-python@v6 # latest as at March 2024
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
