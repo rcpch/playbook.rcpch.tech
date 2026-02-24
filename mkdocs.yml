@@ -5,59 +5,59 @@ site_author: The Royal College of Paediatrics and Child Health
 site_url: https://playbook.rcpch.tech
 
 # copyright information which is shown in the footer
-copyright: Copyright &copy; 2024 Royal College of Paediatrics and Child Health (RCPCH)
+copyright: Copyright &copy; 2026 Royal College of Paediatrics and Child Health (RCPCH)
 
 # these lines configure the 'GitHub repo' widget on the top right
 repo_url: https://github.com/rcpch/rcpch-incubator-playbook
 repo_name: rcpch/rcpch-incubator-playbook
 edit_uri: blob/development/docs
 
-# `mkdocs serve` serves the documentation at custom port (to avoid clashing with other services we commonly run)
+# `zensical serve` serves the documentation at custom port (to avoid clashing with other services we commonly run)
 dev_addr: "0.0.0.0:8000"
 
 nav:
   - Home:
-    - "index.md"
-    - 'about/authors.md'
-    - 'about/contact.md'
+      - "index.md"
+      - "about/authors.md"
+      - "about/contact.md"
   - Principles:
-    - 'principles/general-principles.md'
-    - 'principles/open-source.md'
-    - 'principles/security.md'
-    - 'principles/12fa.md'
-    - 'principles/tools.md'
+      - "principles/general-principles.md"
+      - "principles/open-source.md"
+      - "principles/security.md"
+      - "principles/12fa.md"
+      - "principles/tools.md"
   - Developer's Guide:
-    - 'developer/start-here.md'
-    - 'developer/programming-language.md'
-    - Local Development:
-      - 'developer/local-dev/local-dev-env.md'
-      - 'developer/local-dev/venv.md'
-      - 'developer/local-dev/docker.md'
-    - 'developer/python-specific/python-specifics.md'
-    - Guide to Git:
-      - 'developer/git/overview.md'
-      - 'developer/git/walkthrough.md'
-      - 'developer/git/signed-commits.md'
-    - 'developer/security/ssh-keys.md'
-    - 'developer/security/ubuntu-hardening.md'
-    - 'developer/contributing.md'
-    - 'developer/versioning.md'
-    - 'developer/writing-documentation.md'
-    - 'developer/deployment.md'
-    - 'developer/domain-names.md'
+      - "developer/start-here.md"
+      - "developer/programming-language.md"
+      - Local Development:
+          - "developer/local-dev/local-dev-env.md"
+          - "developer/local-dev/venv.md"
+          - "developer/local-dev/docker.md"
+      - "developer/python-specific/python-specifics.md"
+      - Guide to Git:
+          - "developer/git/overview.md"
+          - "developer/git/walkthrough.md"
+          - "developer/git/signed-commits.md"
+      - "developer/security/ssh-keys.md"
+      - "developer/security/ubuntu-hardening.md"
+      - "developer/contributing.md"
+      - "developer/versioning.md"
+      - "developer/writing-documentation.md"
+      - "developer/deployment.md"
+      - "developer/domain-names.md"
   - Projects:
-    - 'projects/repo-map.md'
-    - RCPCH Census Engine:
-      - 'projects/census/about.md'
-      - 'projects/census/deprivare.md'
-    - Hermes-Docker:
-      - 'projects/hermes/hermes-docker.md'
-  - Legal: 'legal/copyright.md'
-
+      - "projects/repo-map.md"
+      - RCPCH Census Engine:
+          - "projects/census/about.md"
+          - "projects/census/deprivare.md"
+      - Hermes-Docker:
+          - "projects/hermes/hermes-docker.md"
+  - Legal: "legal/copyright.md"
 
 # theme settings, fonts, colours
 theme:
   name: material
+  variant: classic
   #custom_dir: rcpch-theme
   features:
     - content.action.edit # explicitly adds edit button (Material4MkDocs9.0)
@@ -80,7 +80,7 @@ theme:
     code: Roboto Mono
 
   favicon: _assets/_images/dynamic-child-favicon-purple.png
-  logo: '_assets/_images/rcpch_logo.png'
+  logo: "_assets/_images/rcpch_logo.png"
 
 # mkdocs plugins
 plugins:
@@ -94,7 +94,7 @@ plugins:
       cover_title: RCPCH Incubator Playbook
       cover_subtitle: Complete Manual
       exclude_pages:
-        - 'home/download/'
+        - "home/download/"
       output_path: pdf/rcpch-epilepsy12-full-documentation.pdf
       enabled_if_env: ENABLE_PDF_EXPORT
       #debug_html: true
@@ -108,14 +108,15 @@ markdown_extensions:
   - attr_list
   - pymdownx.highlight
   - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:zensical.extensions.emoji.twemoji
+      emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.snippets:
       check_paths: true
+      base_path: .
       auto_append:
-        - ../includes/_abbreviations.md
+        - includes/_abbreviations.md
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

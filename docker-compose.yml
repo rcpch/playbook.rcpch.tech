@@ -10,5 +10,5 @@ services:
     environment:
       - ENABLE_GIT_COMMITTERS=False # Disables git committer extension in local dev
       - ENABLE_PDF_EXPORT=0 # Disables automatic PDF generation in local dev
-    command: mkdocs serve --config-file mkdocs.yml
+    command: zensical serve --config-file mkdocs.yml
     restart: always

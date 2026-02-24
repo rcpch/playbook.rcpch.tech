@@ -17,7 +17,7 @@ The repository is the source for the RCPCH Incubator Playbook: a public document
 
 ## Current Execution (what exists in this repo)
 ### Site Architecture
-- Static documentation site built with MkDocs + Material theme.
+- Static documentation site built with Zensical (compatible with MkDocs + Material configuration).
 - Content lives in `docs/` with top-level sections configured in `mkdocs.yml`:
   - Home
   - Principles
@@ -28,15 +28,15 @@ The repository is the source for the RCPCH Incubator Playbook: a public document
 - Static assets (images, PDFs) under `docs/_assets/`.
 
 ### Tooling and Build
-- Python dependencies defined in `requirements.txt`.
-- Core plugins configured in `mkdocs.yml`:
-  - `mkdocs-material`
+- Python dependencies defined in `requirements.txt` (including Zensical).
+- Core components configured in `mkdocs.yml`:
+  - Zensical Material-compatible theme settings
   - `mkdocs-git-committers-plugin-2`
   - `mkdocs-with-pdf`
   - `search`
 - Markdown extensions include admonitions, snippets, emoji, Mermaid, and TOC.
 - Docker-based local dev:
-  - `docker-compose.yml` runs `mkdocs serve` on port `8000`, mapped to host `8021`.
+  - `docker-compose.yml` runs `zensical serve` on port `8000`, mapped to host `8021`.
   - `Dockerfile` builds a Python 3.12 image, installs requirements, and sets git safe directory.
   - Convenience scripts in `s/`:
     - `s/up` runs `docker compose up`
@@ -45,7 +45,7 @@ The repository is the source for the RCPCH Incubator Playbook: a public document
 ### CI/CD and Hosting
 - GitHub Actions workflow in `.github/workflows/ALL-BRANCHES-ALL-PRs-build-and-deploy-to-azure.yml`:
   - Builds on every push and on PRs against `live`.
-  - Runs `mkdocs build` and deploys to Azure Static Web Apps.
+  - Runs `zensical build` and deploys to Azure Static Web Apps.
   - Provides preview environments for PRs.
 
 ### Documentation Coverage (high level)
@@ -55,17 +55,7 @@ The repository is the source for the RCPCH Incubator Playbook: a public document
 - Legal: CC BY-SA 4.0 licensing text.
 
 ## Known Gaps and Inconsistencies (from codebase state)
-- `docs/principles/open-source.md` contains unresolved merge conflict markers.
-- `mkdocs.yml` references pages that do not exist in `docs/`:
-  - `about/authors.md`, `about/contact.md`.
-  - `projects/census/about.md`, `projects/census/deprivare.md`.
-  - `developer/local-dev/pyenv.md`.
-- `docs/developer/writing-documentation.md` references missing content:
-  - `docs/_utilities/page-template.md`.
-  - `docs/developer/api-python.md` (and its anchors).
-- `includes/_abbreviations.md` claims it is auto-included via an `auto_append` directive, but no such config is present in `mkdocs.yml`.
-- `requirements.txt` includes `mkdocs-macros-plugin` and `mkdocs-git-revision-date-localized-plugin`, but only `mkdocs-git-committers` and `mkdocs-with-pdf` are configured (the revision-date plugin is commented out).
-- `mkdocs.yml` sets `site_url` to `https://docs.epilepsy12.rcpch.ac.uk`, which conflicts with the stated playbook domain in `README.md`.
+- See `worklist.md` for the current active items.
 
 ## Non-Goals
 - This repo does not contain application code for Incubator products; it is documentation-only.

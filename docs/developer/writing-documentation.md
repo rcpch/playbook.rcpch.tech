@@ -1,15 +1,15 @@
 ---
 title: Writing Documentation
-reviewers: Dr Anchit Chandran
+reviewers: Dr Anchit Chandran, Dr Marcus Baw
 ---
 
-Where possible, we have brought together documentation relating to the Incubator into this one MkDocs site, published at <https://playbook.rcpch.tech>.
+Where possible, we have brought together documentation relating to the Incubator into this one Zensical site, published at <https://playbook.rcpch.tech>.
 
-## Material for MkDocs
+## Zensical
 
-This site is created using the MkDocs documentation framework. It uses the '*Material for MkDocs*' theme, which adds a number of extra features and a more modern appearance.
+This site is created using [Zensical](https://zensical.org/), a drop-in replacement for MkDocs + Material for MkDocs that reads the existing `mkdocs.yml` configuration. It keeps compatibility with MkDocs/Material configuration and plugins, while moving away from the upstream changes in MkDocs 2.0.
 
-As you’d expect, there is delightful documentation for both projects: [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), and for the underlying [MkDocs](https://www.mkdocs.org/), on which it’s built. At times, you may need to refer to both for different features.
+As you’d expect, there is documentation for Zensical, and the reference docs for [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and [MkDocs](https://www.mkdocs.org/) are still useful for authoring features and syntax.
 
 ## Adding or editing documentation
 
@@ -19,7 +19,7 @@ Use other pages within this repo to get ideas on the style and the features avai
 
 ### Continuous Integration via GitHub Actions
 
-Any changes to the `live` branch of the documentation repository trigger a [GitHub Action](https://github.com/rcpch/rcpch-incubator-playbook/blob/live/.github/workflows/ALL-BRANCHES-ALL-PRs-build-and-deploy-to-azure.yml). This runs Material for MkDocs in a temporary application container, builds the site from the Markdown source into a set of static HTML pages, and publishes the site to Azure.
+Any changes to the `live` branch of the documentation repository trigger a [GitHub Action](https://github.com/rcpch/rcpch-incubator-playbook/blob/live/.github/workflows/ALL-BRANCHES-ALL-PRs-build-and-deploy-to-azure.yml). This runs Zensical in a temporary application container, builds the site from the Markdown source into a set of static HTML pages, and publishes the site to Azure.
 
 This occurs whether changes are made using online or local, offline editing methods.
 
@@ -37,14 +37,14 @@ If you need help getting set up, [contact us in the Signal chat](../about/contac
 
 ### Using a text editor and editing locally
 
-More experienced coders can `git clone` the repo and make changes offline on their local machine before pushing to the remote to either the `rcpch` organisation's remote, or their own fork. This allows you to run Material for MkDocs locally and preview the site as it will appear when pushed to `live`.
+More experienced coders can `git clone` the repo and make changes offline on their local machine before pushing to the remote to either the `rcpch` organisation's remote, or their own fork. This allows you to run Zensical locally and preview the site as it will appear when pushed to `live`.
 
 #### (Mac / Linux) Setting up a development environment
 
 Create a virtual environment for the Python modules:
 
-* Use `venv` (see [Venv](./local-dev/venv.md))
-* Use a recent Python 3.x (the Docker image uses Python 3.12)
+- Use `venv` (see [Venv](./local-dev/venv.md))
+- Use a recent Python 3.x (the Docker image uses Python 3.12)
 
 ```console
 python3 -m venv .venv
@@ -52,13 +52,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Start the MkDocs server:
+Start the Zensical server:
 
 ```console
-mkdocs serve
+zensical serve
 ```
 
-MkDocs will tell you what URL you can view the site on, which is usually `localhost:8000`. You can vary this in the settings, if port `8000` is already in use.
+Zensical will tell you what URL you can view the site on, which is usually `localhost:8000`. You can vary this in the settings, if port `8000` is already in use.
 
 #### (Windows) Setting up a development environment
 
@@ -82,51 +82,51 @@ Install the dependencies:
 pip install -r requirements.txt
 ```
 
-Finally, start the MkDocs server with:
+Finally, start the Zensical server with:
 
 ```console
-mkdocs serve
+zensical serve
 ```
 
-MkDocs will tell you what URL you can view the site on.
+Zensical will tell you what URL you can view the site on.
 
 #### `git-committers` and `mkdocs-with-pdf` plugins
 
 These plugins can add 10-15 seconds of build time to the site, so when developing locally, they are disabled by default. They are enabled by using environment variables, if you want to test that they work locally before pushing to the remote:
 
 ```console
-export ENABLE_GIT_COMMITTERS=true; mkdocs serve
-export ENABLE_PDF_EXPORT=true; mkdocs serve
+export ENABLE_GIT_COMMITTERS=true; zensical serve
+export ENABLE_PDF_EXPORT=true; zensical serve
 ```
 
 You should always build the site at least once with both PDF export and Git Committers enabled, to ensure there are no issues, before pushing to the remote.
 
 #### Notes
 
-* On some platforms, if you get the error `ModuleNotFoundError: No module named '_ctypes'`, then you need to run `sudo apt-get install libffi-dev`, or the equivalent on your platform. Then, recompile your Python (if using pyenv, simply `pyenv install 3.10.2` will recompile that Python binary).
+- On some platforms, if you get the error `ModuleNotFoundError: No module named '_ctypes'`, then you need to run `sudo apt-get install libffi-dev`, or the equivalent on your platform. Then, recompile your Python (if using pyenv, simply `pyenv install 3.10.2` will recompile that Python binary).
 
-* Tested Oct 2022 on Linux Mint 21.0
+- Tested Oct 2022 on Linux Mint 21.0
 
 ## Adding a new page
 
-* Create a new Markdown file in a subfolder in the `docs` folder. Use a similar existing page as a starting point, then adjust the content and front matter.
+- Create a new Markdown file in a subfolder in the `docs` folder. Use a similar existing page as a starting point, then adjust the content and front matter.
 
 !!! info
-    Because of the way we have set up the left sidebar navigation, new pages are **not** automatically added to the navigation.
+Because of the way we have set up the left sidebar navigation, new pages are **not** automatically added to the navigation.
 
     (This allows us to have pages which are work-in-progress, available on the live site for review, but not in the navigation, hence only those who have the link would easily find it)
-    
+
     See the next section for how to add pages to the navigation.
 
 ### Adding navigation for the page
 
 Add navigation by editing the `nav:` tree element in `mkdocs.yml`. Below is an excerpt from the `nav:` in this project. You can see how the top level Navbar headings `Home` and About `are` defined, and how the sidebar headings work. You can nest several levels deep, if needed.
 
-``` yaml
+```yaml
 nav:
   - Home: "index.md"
   - About:
-    - 'about/about.md'
+      - "about/about.md"
 ```
 
 By manually specifying the navigation in this way, we have control over the precise appearance of subfolder names (which are otherwise rendered in Title Case, but this doesn't work for acronyms). Also, we can customise the order of listing of sidebar headings, which would otherwise be ordered alphabetically.
@@ -135,7 +135,7 @@ By manually specifying the navigation in this way, we have control over the prec
 
 The page title that will be displayed in the left sidebar navigation is set in the YAML front matter:
 
-``` yaml hl_lines="2"
+```yaml hl_lines="2"
 ---
 title: Some Page Title
 reviewers:
@@ -146,7 +146,7 @@ reviewers:
 
 The heading that will be displayed on the page is set using the first `<h1>` heading (i.e. one hashtag `#`)
 
-``` markdown
+```markdown
 # Heading, which can be different to the sidebar title
 ```
 
@@ -154,7 +154,7 @@ The heading that will be displayed on the page is set using the first `<h1>` hea
 
 Reviewers are encouraged to add their details to the `reviewers:` section of the YAML front matter. This enables us to evidence that each page has been reviewed by multiple members of the team.
 
-``` yaml
+```yaml
 ---
 title: Some Page Title
 reviewers: Dr Anchit Chandran, ...
@@ -165,8 +165,8 @@ reviewers: Dr Anchit Chandran, ...
 
 When you push new changes to ANY branch of this repo, or it you open a Pull Request, Azure will automatically build a version of the site for review. You need to visit the Azure portal to see the URL of the deployment, as it depends on the branch name.
 
-Therefore, you don't need to do `mkdocs build` or `mkdocs gh-deploy --force` commands manually or locally - it’s done for you if you push to branches or PRs on GitHub.
+Therefore, you don't need to run `zensical build` or any deploy commands manually or locally - it’s done for you if you push to branches or PRs on GitHub.
 
 ## Plugins
 
-MkDocs has [many plugins available](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins). We already use some to extend the capabilities of MarkDown, making the documentation look nicer and function better.
+Zensical supports MkDocs plugins and features through compatibility modules. We already use a small set to extend the capabilities of MarkDown, making the documentation look nicer and function better.
