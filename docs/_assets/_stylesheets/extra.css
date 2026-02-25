@@ -1,9 +1,27 @@
 /* these are colours and fonts consistent with RCPCH branding guidelines - see github for info */
 
 :root {
-  --md-primary-fg-color: #3366cc;
-  --md-accent-fg-color: #11a7f2;
-  --rcpch-pink-color: #f18cc9;
+  --rcpch-purple: #7159aa;
+  --rcpch-purple-tint-1: #ae4cbf;
+  --rcpch-purple-tint-2: #c987d4;
+  --rcpch-purple-tint-3: #e4c3ea;
+  --rcpch-purple-dark: #66296c;
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--rcpch-purple);
+  --md-primary-fg-color--light: var(--rcpch-purple-tint-2);
+  --md-primary-fg-color--dark: var(--rcpch-purple-dark);
+  --md-accent-fg-color: var(--rcpch-purple-dark);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--rcpch-purple);
+  --md-primary-fg-color--light: var(--rcpch-purple-tint-3);
+  --md-primary-fg-color--dark: var(--rcpch-purple-dark);
+  --md-accent-fg-color: var(--rcpch-purple-tint-2);
+  --md-default-bg-color: #191919;
+  --md-default-fg-color: #f3f3f3;
 }
 
 /* FONTS & TYPESETTING */
@@ -17,13 +35,17 @@
 .md-typeset h2 {
   font-weight: 700;
   font-size: 16pt;
-  color: #4d4d4d;
+  color: var(--md-primary-fg-color);
 }
 
 .md-typeset h3 {
   font-weight: 700;
   font-size: 13pt;
-  color: #000000;
+  color: var(--rcpch-purple-dark);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: var(--rcpch-purple-tint-3);
 }
 
 /* make the text bigger in the admonitions */
@@ -36,8 +58,8 @@
 
 /* make the header white with blue text */
 .md-header {
-  background-color: #ffffff;
-  color: #0d0d58;
+  background-color: var(--md-primary-fg-color);
+  color: #ffffff;
 }
 
 /* Switch off header hover behaviour */
@@ -86,8 +108,8 @@
 
 /* mobile  - make the header white with blue text */
 .md-nav--primary .md-nav__title[for="__drawer"] {
-  background-color: #ffffff;
-  color: #0d0d58;
+  background-color: var(--md-primary-fg-color);
+  color: #ffffff;
 }
 
 /* mobile - enlarges the logo image */
@@ -126,7 +148,7 @@ button {
 
 /* HERO SECTION OF HOME PAGE */
 .mdx-hero__content {
-  background-color: #11a7f2;
+  background-color: var(--md-primary-fg-color);
   padding: 3em;
 }
 
@@ -137,8 +159,8 @@ button {
 }
 
 .mdx-hero__content a.md-button:hover {
-    background-color: var(--rcpch-pink-color);
-    border-color: var(--rcpch-pink-color);
+    background-color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
 }
 
 .latex img {

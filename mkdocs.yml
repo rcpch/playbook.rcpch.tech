@@ -1,3 +1,6 @@
+# MkDocs configuration file for the RCPCH Incubator Playbook documentation site
+# Upgraded to use Zensical 2026.02.25
+
 # main site metadata and titles
 site_name: RCPCH Incubator Playbook
 site_description: Manual and Reference for the RCPCH Incubator Team
@@ -10,9 +13,9 @@ copyright: Copyright &copy; 2026 Royal College of Paediatrics and Child Health (
 # these lines configure the 'GitHub repo' widget on the top right
 repo_url: https://github.com/rcpch/rcpch-incubator-playbook
 repo_name: rcpch/rcpch-incubator-playbook
-edit_uri: blob/development/docs
+edit_uri: blob/live/docs
 
-# `zensical serve` serves the documentation at custom port (to avoid clashing with other services we commonly run)
+# development port and address for local development server (default is localhost:8000)
 dev_addr: "0.0.0.0:8000"
 
 nav:
@@ -72,8 +75,18 @@ theme:
     # - toc.integrate
 
   palette:
-    # Light mode only for now
-    scheme: default
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
   font:
     text: Montserrat
