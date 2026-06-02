@@ -1,5 +1,7 @@
 # The RCPCH Incubator Playbook
 
+> ARCHIVED: This content has been moved to the RCPCH Incubator forum at https://forum.rcpch.tech
+
 ## About the RCPCH Developer Team Playbook
 
 This playbook is a set of free, openly published guidelines developed to help define the technical and operational standards used by the RCPCH Developer Team, to orient new team members, and make a statement of our intent around technical, security, and clinical standards.
