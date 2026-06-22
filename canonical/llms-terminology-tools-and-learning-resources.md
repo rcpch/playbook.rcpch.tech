@@ -202,7 +202,7 @@ relevant_docs = vector_store.similarity_search(query)
 
 **LLM "Understanding" and Reasoning**
 
-Large Language Models (LLMs) don’t understand language like humans do — they don’t have beliefs, awareness, or intent. But they can appear to "understand" because they’re extremely good at picking up patterns in language.
+Large Language Models (LLMs) don’t understand language like humans do - they don’t have beliefs, awareness, or intent. But they can appear to "understand" because they’re extremely good at picking up patterns in language.
 
 What does "understanding" mean here?
 
@@ -224,7 +224,7 @@ Prompt: If a patient has a fever and cough, and CRP is raised, what might be hap
 LLM output: This could suggest an infection, possibly bacterial if CRP is high.
 ```
 
-It’s not reasoning in a human sense — but it’s often useful enough to solve real problems.
+It’s not reasoning in a human sense - but it’s often useful enough to solve real problems.
 
 
 
@@ -246,7 +246,7 @@ Agent: immediately calls the {{get_weather}} function with location = "London"
 ```
 
 
-- The latest models' context lengths are phenomenally large. Surprisingly, many use cases could get away without implementing RAG—literally, just put the entire Knowledge Base into the prompt.
+- The latest models' context lengths are phenomenally large. Surprisingly, many use cases could get away without implementing RAG-literally, just put the entire Knowledge Base into the prompt.
 
 - Saying "you're a world-renowned expert in X field" tends to get better results, with the vibes-based intuition being that the bag of words to choose from lies along some "expert" dimension. Additionally, add *"you're being paid ${insert large amount} for a consultation on Y topic"* for a similar reason.
 - Use `Pydantic` models to define data structures consistently - both for inputs and outputs. When interpolating into your prompt string, use the model instance's method to convert to JSON.

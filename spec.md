@@ -1,4 +1,4 @@
-# RCPCH Incubator Playbook — Spec
+# RCPCH Incubator Playbook: Spec
 
 ## Purpose
 The repository is the source for the RCPCH Incubator Playbook: a public documentation site that captures the team’s technical, operational, and clinical software standards. It aims to orient new team members, make explicit the team’s intent, and publish guidance for safe, transparent healthcare software.
@@ -17,7 +17,7 @@ The repository is the source for the RCPCH Incubator Playbook: a public document
 
 ## Publication locations
 
-### New canonical home (Discourse) — active
+### New canonical home (Discourse): active
 **URL:** `https://forum.rcpch.tech/c/playbook/34`
 
 The Playbook lives in category 34 ("Playbook") on the RCPCH Incubator Forum. Each topic in the category is one article. The left-sidebar index is provided by the **Discourse Doc Categories plugin**, which renders the body of a designated "index topic" as a structured navigation panel.
@@ -27,7 +27,7 @@ The Playbook lives in category 34 ("Playbook") on the RCPCH Incubator Forum. Eac
   - The `<div data-theme-toc="true"> </div>` at the end is required by the plugin to activate the sidebar.
   - Keeping this index topic complete and well-organised is the primary navigation maintenance task.
 
-### Original static site (Zensical/MkDocs) — being decommissioned
+### Original static site (Zensical/MkDocs): being decommissioned
 **URL:** `https://playbook.rcpch.tech`
 
 - Static documentation site built with Zensical (MkDocs + Material theme).
@@ -68,7 +68,7 @@ The long-term goal is a **single `docs/` folder** of Markdown files that feeds b
 
 ### Metadata convention: YAML front matter (stripped before push by `dsc`)
 
-Routing metadata is stored in standard YAML front matter (`---` fences) at the top of each file, written by `dsc category pull`. This is stripped by `dsc category push` before sending content to Discourse — the metadata is local-only and never appears in the published post.
+Routing metadata is stored in standard YAML front matter (`---` fences) at the top of each file, written by `dsc category pull`. This is stripped by `dsc category push` before sending content to Discourse - the metadata is local-only and never appears in the published post.
 
 ```yaml
 ---
@@ -108,7 +108,7 @@ Origin: https://github.com/rcpch/playbook.rcpch.tech/...
 
 ### What is compatible between platforms without conversion
 - Standard CommonMark: headings, lists, paragraphs, fenced code blocks, tables, bold/italic, blockquotes.
-- HTML comments (stripped by both renderers — used for metadata).
+- HTML comments (stripped by both renderers - used for metadata).
 - Fenced code blocks with language hints.
 
 ## Security and publication status
@@ -117,11 +117,11 @@ The Discourse Playbook category is currently **private**. The Zensical static si
 
 | Topic | Status | Action |
 |---|---|---|
-| `azure-api-management.md` | 🔴 Do not publish | Move to `/c/sysadmin`. Contains Azure subscription ID, resource group names, APIM service names, and admin portal deep-links — operational admin content. |
+| `azure-api-management.md` | 🔴 Do not publish | Move to `/c/sysadmin`. Contains Azure subscription ID, resource group names, APIM service names, and admin portal deep-links - operational admin content. |
 | `domain-names-comprehensive-list-and-contact-points.md` | 🟡 Edit before publishing | Remove `olly.rice@rcpch.ac.uk` direct personal email; replace with role/team contact description. |
 | All other 25 topics | ✅ OK to publish | No credentials, internal IPs, or security-sensitive content found. |
 
-Note: `ai-toolkit.md` references a private forum topic (`/t/openai-platform-account/385`) for credentials — that link is safe to publish because the target topic is private; the playbook topic itself contains no credentials.
+Note: `ai-toolkit.md` references a private forum topic (`/t/openai-platform-account/385`) for credentials - that link is safe to publish because the target topic is private; the playbook topic itself contains no credentials.
 
 ## Known Gaps and Inconsistencies (from codebase state)
 - See `roadmap.md` for the current active items and improvement plan.

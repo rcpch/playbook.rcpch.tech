@@ -12,28 +12,28 @@ Origin: merged from discourse/draft-writing-documentation.md and zensical/develo
 
 Good documentation is part of our commitment to transparency, safety, and knowledge transfer. This page covers how we think about documentation and how to contribute to the Playbook.
 
-## Diátaxis — a framework for thinking about docs
+## Diátaxis: a framework for thinking about docs
 
 [Diátaxis](https://diataxis.fr/) describes four types of documentation according to user need. Many problems in poor documentation stem from blurring these boundaries:
 
 | Type | Purpose | Example |
 |---|---|---|
-| Tutorial | Learning-oriented — guides a newcomer through a task | "Your first Pull Request" |
-| How-to guide | Goal-oriented — solves a specific problem | "How to set up a virtual environment" |
-| Reference | Information-oriented — describes a system | API documentation |
-| Explanation | Understanding-oriented — discusses concepts | "Why we use open source" |
+| Tutorial | Learning-oriented - guides a newcomer through a task | "Your first Pull Request" |
+| How-to guide | Goal-oriented - solves a specific problem | "How to set up a virtual environment" |
+| Reference | Information-oriented - describes a system | API documentation |
+| Explanation | Understanding-oriented - discusses concepts | "Why we use open source" |
 
-When writing a new page, ask: which of these is it? Keep each page to one type — don't mix a tutorial and reference content on the same page.
+When writing a new page, ask: which of these is it? Keep each page to one type - don't mix a tutorial and reference content on the same page.
 
 ## Where documentation lives
 
-The Playbook lives on the RCPCH Incubator Forum at https://forum.rcpch.tech/c/playbook/34 — each topic in the category is one article. An offline, Git-tracked copy of all topics is maintained in this repository (`canonical/` directory).
+The Playbook lives on the RCPCH Incubator Forum at https://forum.rcpch.tech/c/playbook/34 - each topic in the category is one article. An offline, Git-tracked copy of all topics is maintained in this repository (`canonical/` directory).
 
 ## Contributing to the Playbook
 
 The simplest way to suggest changes is to reply directly on the relevant forum topic. The team will review and apply the edit.
 
-For larger contributions — new topics, major rewrites — raise a discussion on the forum or [contact the team](https://forum.rcpch.tech/t/contact-the-rcpch-incubator/).
+For larger contributions - new topics, major rewrites - raise a discussion on the forum or [contact the team](https://forum.rcpch.tech/t/contact-the-rcpch-incubator/).
 
 ### If you're editing the Git source directly
 
@@ -54,7 +54,7 @@ dsc category push rcpch 34 canonical/ --updates-only  # then push
 - Prefer short sentences and plain language. This is a technical playbook but most readers are time-pressed clinicians or developers who are new to a topic.
 - Use code blocks for all commands and file contents.
 - Headings should be descriptive, not clever.
-- Avoid MkDocs-specific extensions (admonitions, tabbed content, key macros) — use standard Markdown blockquotes and code blocks instead, so content works in both Discourse and any Markdown renderer.
+- Avoid MkDocs-specific extensions (admonitions, tabbed content, key macros) - use standard Markdown blockquotes and code blocks instead, so content works in both Discourse and any Markdown renderer.
 
 ## Adding a new topic
 
