@@ -1,3 +1,10 @@
+---
+title: VS Code Git Walkthrough
+topic_id: 719
+url: https://forum.rcpch.tech/t/vs-code-git-walkthrough/719
+pulled_at: 2026-06-22T14:54:00Z
+---
+
 <!--
 Origin: zensical/developer/git/walkthrough.md
 reviewers: 
@@ -63,7 +70,7 @@ In the bottom left, click the branch button (the default branch will be `live`).
 
 ![screenshot branch](https://raw.githubusercontent.com/rcpch/rcpch-incubator-playbook/live/zensical/_assets/_images/git-walkthrough-imgs/branch.png)
 
-Select `Create a new branch from...` and select `development` (it might be called `upsteam/development`).
+Select `Create a new branch from...` and select `development` (it might be called `upstream/development`).
 
 Name your branch whatever you wish, e.g. `contribution`. The name should relate to whatever you're working on.
 
