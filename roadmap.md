@@ -24,10 +24,10 @@ The only operations permitted are:
 Topic deletion via `dsc post` or any other mechanism is explicitly prohibited. If a topic needs to be retired, it should be unlisted or archived directly in the Discourse admin UI by a human.
 
 ### Canonical offline copy
-The `discourse/` directory in this repository is the **canonical offline Git-tracked copy** of all Playbook topics. It is the source of truth for the content of each topic. (Previously named `forum-export/`; renamed for clarity - see roadmap for the path to a final `docs/` directory.)
+The `canonical/` directory in this repository is the **working source of truth** for Playbook content. The `discourse/` directory is the raw pull baseline (read-only reference).
 
-- Every time topics are pulled from Discourse, the result is committed to this repo.
-- Edits to Playbook content are made here (in `discourse/`) and pushed to Discourse, **or** made directly inline in Discourse - but either way, the repo should be kept in sync by pulling after any inline forum edits.
+- `canonical/` is edited here and pushed to Discourse via `dsc`.
+- After any direct edits made on the forum, re-pull to `discourse/` and reconcile into `canonical/` manually.
 - Git history provides an audit trail of all changes to topic content.
 
 ### Preserving Discourse edit history
@@ -38,41 +38,42 @@ When `dsc topic push` updates a topic, it calls `PUT /posts/{id}.json` with only
 ## Immediate content tasks
 
 - [ ] **Security: move `azure-api-management.md` to `/c/sysadmin`** on the forum (manual action by human admin - do not publish to public category). Contains Azure subscription ID, resource group names, APIM service names, admin portal deep-links.
-- [ ] **Security: edit `domain-names-comprehensive-list-and-contact-points.md`** - remove `olly.rice@rcpch.ac.uk` direct personal email; replace with a role/team contact description before the category goes public.
-- [ ] **Complete the Discourse index topic** (`forum.rcpch.tech/t/playbook-index-topic/366`). The current index is incomplete - missing ~14 topics, has a "WIP" placeholder for "Web development", and a self-referential link. Edit `discourse/playbook-index-topic.md` and push with `dsc topic push rcpch 366 discourse/playbook-index-topic.md`. Topic IDs needed - implement `dsc` Gap 1 first or look them up manually from the forum.
-- [ ] Bring the `colours.md` content from the forum into the consolidated docs (exists at `discourse/rcpch-main-brand-colours.md` - review and reconcile with `zensical/branding/colours.md`).
-- [ ] Full review of all docs for style and tonal consistency.
+- [x] **Security: remove personal email from domain-names** - `olly.rice@rcpch.ac.uk` replaced with role/team description in `canonical/domain-names.md`. Will be pushed to topic 347 in Stage 6.
+- [ ] **Complete and push the Discourse index topic** (`forum.rcpch.tech/t/playbook-index-topic/366`). Edit `canonical/` equivalent once Stage 6 push is done and all new topic IDs are known. See Stage 6 notes.
+- [ ] Full editorial review of all 40 `canonical/` topics for style and tonal consistency (can be done incrementally after Stage 6).
 - [ ] Migrate useful content from `to-do/to-do.md` into the docs (the pip uninstall tip and the Incubator SOP guidelines are publication-ready).
 
 ---
 
-## Single-source file layout (target state)
+## Single-source file layout
 
-The goal is `docs/` as the **single canonical content directory** used by both `dsc category push` (to Discourse) and `mkdocs.yml` (for the Zensical static site, while it lasts). See `spec.md` for content conventions and the `<!--dsc-meta` metadata format.
+The goal is `canonical/` as the **single working content directory** pushed to Discourse via `dsc` and (while it lasts) the source for the Zensical static site.
 
-**Current interim layout:**
-- `discourse/` - 27 topics pulled from Discourse (renamed from `forum-export/`)
-- `zensical/` - 34 `.md` files from the original static site (`mkdocs.yml` `docs_dir: zensical`)
-- `docs/` _(future)_ - final single canonical source
+**Current layout:**
+- `discourse/` - 27 topics pulled from Discourse; YAML front matter with `topic_id`; used as the pull baseline. Not edited directly.
+- `zensical/` - 34 `.md` files from the original static site (`mkdocs.yml` `docs_dir: zensical`). Retained as reference; not edited.
+- `canonical/` - **40 push-ready topics** (editorial merge of both sources). This is the working source of truth going forward.
+- `inventory.md` - full comparison table with editorial decisions.
+- `backlog.md` - deferred and stub content.
 
-Tasks to get there:
-
-- [ ] Reconcile `discourse/` and `zensical/` into `docs/` via the editorial inventory (Stage 3).
-- [ ] Add `<!--dsc-meta ... -->` HTML-comment metadata blocks to all files in `discourse/` once dsc Gap 1 is implemented - re-pull to get properly-annotated versions.
-- [ ] Audit `zensical/` for content not yet in `discourse/` - several pages have no forum equivalent yet: git walkthrough, signed commits, local dev setup, venv, Docker, Python specifics, security/SSH keys, Ubuntu hardening, contributing, projects, legal.
-- [ ] For each `zensical/`-only page: decide whether to add as a new forum topic or fold into an existing topic.
-- [ ] Once merged into `docs/`, update `mkdocs.yml` `docs_dir: docs` and update `dsc` commands to use `docs/`.
+**Completed layout tasks:**
+- [x] Rename `forum-export/` to `discourse/` and `docs/` to `zensical/` for clear provenance.
+- [x] Re-pull `discourse/` with YAML front matter (all 27 files now have `topic_id`).
+- [x] Audit `zensical/` for content not in `discourse/` - 16 pages identified and migrated.
+- [x] Build `canonical/` from discourse baseline + zensical migrations (40 topics).
+- [ ] After Stage 6 push, update `mkdocs.yml` `docs_dir: canonical` if Zensical build is still needed.
+- [ ] Once the static site is decommissioned, remove `zensical/` and `discourse/` from the repo (or archive them in a branch).
 
 ---
 
 ## Consolidation: merge the static site with Discourse
 
-The RCPCH playbook currently exists in two diverged locations:
+The RCPCH playbook previously existed in two diverged locations:
 
 1. **`zensical/`** - source for `playbook.rcpch.tech` (static site, Zensical/MkDocs).
 2. **`discourse/`** - offline copy of `forum.rcpch.tech/c/playbook` (27 topics).
 
-The goal is a single **canonical offline markdown copy** (`docs/`), reconciled and edited, published to **Discourse as the long-term home**, using the `dsc` CLI to pull and push topics.
+The goal is a single **canonical offline markdown copy** (`canonical/`), reconciled and edited, published to **Discourse as the long-term home**, using the `dsc` CLI to pull and push topics.
 
 ### Objective
 
@@ -84,23 +85,23 @@ Establish `forum.rcpch.tech/c/playbook` as the single source of truth, backed by
 
 - [x] Confirm the exact forum category slug and ID - **category 34** (`forum.rcpch.tech/c/playbook/34`).
 - [x] Confirm `dsc` is authenticated against `forum.rcpch.tech` as Admin with read/write access.
-- [ ] Confirm whether any forum topics in the category are drafts, staff-only, or unlisted.
+- [x] Confirm whether any forum topics are drafts, staff-only, or unlisted (none found in category 34).
 - [x] Working directory is this repo; offline copy in `discourse/`.
 
 ---
 
-### Stage 1: Extract forum content ✅ done (baseline)
+### Stage 1: Extract forum content ✅ done
 
 - [x] Use `dsc category pull rcpch 34 discourse/` - 27 topics pulled (originally `forum-export/`, renamed).
 - [x] Commit `./discourse/` to git as baseline snapshot (commit `00c10be`).
-- [ ] Re-pull after `dsc` Gap 1 is implemented (HTML-comment metadata) to produce properly-annotated files.
-- [ ] Note any topics that are pinned, locked, or have significant reply threads.
+- [x] Re-pull after `dsc` Gap 1 implementation - all 27 files now have YAML front matter with `topic_id`, `url`, `pulled_at` (commit `c19a7ff`).
+- [x] No pinned, locked, or significant reply-thread topics found in the category.
 
-**Deliverable:** `./discourse/` - 27 markdown files, committed. ✅
+**Deliverable:** `./discourse/` - 27 markdown files with YAML front matter, committed. ✅
 
 ---
 
-### Stage 2: Original site content ✅ already in repo
+### Stage 2: Original site content ✅ done
 
 The static site source (`zensical/`, `mkdocs.yml`) is already in this repository. No separate export needed.
 
@@ -111,53 +112,51 @@ The static site source (`zensical/`, `mkdocs.yml`) is already in this repository
 
 ---
 
-### Stage 3: Inventory and compare
+### Stage 3: Inventory and compare ✅ done
 
-Build a single map of what exists where, before making any editorial calls.
+- [x] Produced `inventory.md` - full comparison of all 27 discourse topics and 34 zensical pages. Every item has a decision: KEEP / UPDATE / REWRITE / NEW / MERGE-IN / SYSADMIN / BACKLOG / SKIP.
+- [x] Content-level review of all overlapping items (principles, versioning, domain-names, writing-documentation, about, colours).
+- [x] Flagged duplicates (versioning, domain-names, about, colours) and uniques (16 zensical-only pages to migrate).
 
-- [ ] Produce a comparison inventory (`inventory.md`) - a table listing every distinct topic/page across both sources with columns: title, in forum? (URL/ID), in site? (path), last updated, apparent overlap, first-pass status (keep / merge / drop / rewrite / investigate).
-- [ ] For overlapping items, do a content-level diff so divergence is visible.
-- [ ] Flag obvious duplicates and obvious uniques up front.
-
-**Deliverable:** `inventory.md` - the master comparison table driving the editorial pass.
+**Deliverable:** `inventory.md` - the master comparison table. ✅
 
 ---
 
-### Stage 4: Editorial review
+### Stage 4: Editorial review ✅ done
 
-Go through the inventory and make a decision on every item:
+- [x] Resolved all overlapping pairs into single canonical versions.
+- [x] Three discourse topics edited: `about-this-playbook.md` (empty section removed), `domain-names.md` (personal email removed), `writing-documentation.md` (full rewrite merging Diátaxis content with contributor guidance).
+- [x] 16 zensical-only pages migrated to `canonical/`: open-source, security-practices, twelve-factor-apps, tools-of-the-trade, git-overview, git-walkthrough-vscode, gpg-signed-commits, local-development-environment, python-virtual-environments, docker, programming-language, python-style-guide, contributing, contact, licensing-and-copyright, repo-map.
+- [x] All MkDocs admonitions converted to Discourse blockquotes. Relative links fixed. Image paths rewritten to GitHub raw URLs.
+- [x] `backlog.md` written for deferred items: ssh-keys stub, ubuntu-hardening stub, deployment stub, project-specific pages.
 
-- **Necessary?** Does this still serve a real reader need, or has practice moved on?
-- **Duplicated?** Where forum and site overlap, which version is better? What should the single merged version say?
-- **Out of date?** Flag retired tools, old processes, dead links, superseded standards. Decide: update, archive, or remove.
-- **Missing?** Note gaps - capture as stub topics / backlog rather than blocking publication.
-
-- [ ] Resolve every overlapping pair into a single canonical version.
-- [ ] Apply a consistent voice, structure, and heading style across all retained content.
-- [ ] Normalise internal links (so cross-references resolve once everything lives in Discourse).
-- [ ] Maintain a `backlog.md` for content gaps to fill after migration.
-
-**Deliverable:** `./canonical/` - edited, deduplicated, current set of playbook topics; plus `backlog.md` of identified gaps.
+**Deliverable:** `./canonical/` - 40 push-ready topics; `backlog.md`. ✅
 
 ---
 
-### Stage 5: Prepare canonical markdown for Discourse
+### Stage 5: Prepare canonical markdown for Discourse ✅ done
 
-- [ ] Map each canonical topic to its destination: new topic vs update to an existing forum topic ID (preserve existing topics where sensible to keep URLs and history).
-- [ ] Confirm front matter / metadata `dsc` expects (title, category, tags) is present and consistent.
-- [ ] Decide tagging and any sub-structure within the category (tags or a pinned index topic as table of contents).
-- [ ] Do a dry run / review of what will be created vs updated before pushing anything.
+- [x] All 40 files in `canonical/` reviewed for YAML front matter: existing topics have `topic_id` (routed by ID on push); new topics have no `topic_id` (will be created).
+- [x] Dry-run verified: `dsc category push rcpch 34 canonical/ --dry-run` reports **3 updates, 16 creates, 21 unchanged**. All routing correct.
+- [x] `--no-bump` flag available in current `dsc` build for use during push.
 
-**Deliverable:** Push-ready `./canonical/` plus a mapping of topic → create/update action.
+**Deliverable:** Push-ready `./canonical/` with verified dry-run. ✅
+
+**Push command (human to execute after approval):**
+```bash
+dsc category push rcpch 34 canonical/ --no-bump
+```
 
 ---
 
 ### Stage 6: Publish to Discourse
 
-- [ ] Push the canonical set to `/c/playbook` with `dsc`, updating existing topics in place where mapped and creating new ones otherwise.
-- [ ] Create / update a pinned index topic linking to all playbook topics (homepage / contents).
-- [ ] Spot-check rendering in Discourse (markdown quirks, code blocks, images, internal links).
-- [ ] Retire or unlist any forum topics dropped during editing (archive rather than hard-delete where history matters).
+- [ ] Human reviews dry-run output and approves push.
+- [ ] Execute: `dsc category push rcpch 34 canonical/ --no-bump`
+- [ ] After push: re-pull `canonical/` to capture new `topic_id` values for the 16 created topics.
+- [ ] Write and push the updated index topic (topic 366) with all 40 topics organised into logical sections. Use the new topic IDs from the re-pull.
+- [ ] Spot-check rendering in Discourse: code blocks, images (GitHub raw URLs), internal links, blockquote callouts.
+- [ ] Move `azure-api-management.md` (topic 443) to `/c/sysadmin` via Discourse admin UI (human action - not via `dsc`).
 
 **Deliverable:** Updated, deduplicated playbook live at `forum.rcpch.tech/c/playbook`.
 
@@ -168,7 +167,7 @@ Go through the inventory and make a decision on every item:
 - [ ] Decide the fate of `playbook.rcpch.tech`: redirect to the forum category, replace with a short landing/pointer page, or archive the repo.
 - [ ] Add a redirect or banner so existing links and bookmarks reach the new canonical location.
 - [ ] Update the source repo README to mark it superseded and point to the forum.
-- [ ] Commit the final canonical markdown copy to git as the offline backup of record and document the `dsc` pull/push workflow for future maintenance.
+- [ ] Commit the final state to git as the offline backup of record and document the `dsc` pull/push workflow for future maintenance.
 
 **Deliverable:** Single canonical home, redirects in place, offline markdown backup committed, workflow documented.
 
@@ -176,55 +175,23 @@ Go through the inventory and make a decision on every item:
 
 ## Open decisions
 
-- Preserve existing forum topic IDs/URLs by updating in place, or start clean? (Updating in place is friendlier to existing links.)
-- Structure within the category: flat list of topics, tags, or a pinned index topic as contents page?
-- What is the ongoing edit workflow once Discourse is canonical: edit in Discourse directly, or edit markdown and `dsc push`? (Pick one to avoid re-diverging.)
-- Who owns sign-off on the editorial decisions before publishing?
-
----
-
-## Suggested working layout
-
-```
-rcpch-playbook/
-  forum-export/      # Stage 1 raw pull (committed as-is)
-  site-export/       # Stage 2 raw source copy (committed as-is)
-  inventory.md       # Stage 3 comparison + Stage 4 decisions
-  canonical/         # Stage 4-5 edited, push-ready topics
-  backlog.md         # identified gaps to fill later
-```
+- What is the ongoing edit workflow once Discourse is canonical: edit in `canonical/` and `dsc push`, or edit directly in Discourse then `dsc pull`? Recommend: `canonical/` as the edit source, push to Discourse. Avoids re-divergence.
+- Who owns sign-off on the editorial decisions and Stage 6 push approval?
+- Should project-specific pages (Census, Hermes) get their own `/c/projects` category, or live as a subsection of `/c/playbook`?
 
 ---
 
 ## `dsc` gap analysis
 
-This section documents features missing from `dsc` (v0.10.9) that are needed to support the governance workflow above. These should be raised with the `dsc` maintainer for implementation.
+All gaps identified during this migration have been implemented. The `dsc` binary has been rebuilt from source at commit `0c7e3f0` and installed at `~/.cargo/bin/dsc`.
 
-### Gap 1: `category pull` does not embed topic IDs in output files
+| Gap | Feature | Status |
+|---|---|---|
+| 1 | `category pull` embeds YAML front matter (`topic_id`, `url`, `pulled_at`) | ✅ implemented |
+| 2 | `--dry-run` on `category push` (shows `~`/`+`/`=` per file) | ✅ implemented |
+| 3 | `--updates-only` flag (errors instead of silently creating on mismatch) | ✅ implemented |
+| 4 | `--convert-admonitions` and `--rewrite-links` on push/pull | planned (see dsc spec) |
+| 5 | `--no-bump` and `--skip-revision` on `topic push` / `category push` | ✅ implemented |
 
-**What happens now:** `dsc category pull` saves each topic as `<slugified-title>.md` with no YAML front matter. The mapping from local filename → Discourse topic ID is not persisted anywhere.
-
-**Why this matters:** `dsc category push` matches local files to existing forum topics by comparing the slugified title (or filename stem) against the remote topic slug. If a topic's title is edited locally, the slug changes, the match fails, and `category push` silently **creates a duplicate topic** instead of updating the existing one.
-
-**What is needed:** `category pull` should embed YAML front matter in every pulled file containing at minimum `topic_id` and `url` (similar to what `topic pull --full` already does for full-thread pulls). `category push` should then read `topic_id` from front matter and use it directly to target the correct post, falling back to slug matching only when front matter is absent.
-
----
-
-### Gap 2: `category push` ignores `--dry-run`
-
-**What happens now:** The `--dry-run` flag is accepted by the CLI parser but the `category_push()` function signature does not receive it (see `main.rs` line 226: `commands::category::category_push(&config, &discourse, &category, &local_path)` - `dry_run` is omitted). The flag is silently discarded; the push proceeds as a live operation.
-
-**Why this matters:** The governance rule requires human review of exactly what will change before any push. Without a working dry-run, there is no safe way to preview the operation.
-
-**What is needed:** Pass `dry_run` into `category_push()` and implement dry-run behaviour that prints, for each local file: whether it would **update** an existing topic (with topic ID and URL) or **create** a new topic - without making any API calls.
-
----
-
-### Gap 3: `category push` silently creates new topics on slug mismatch
-
-**What happens now:** When a local `.md` file does not match any existing topic by slug or title, `category push` creates a new topic without warning. There is no `--updates-only` or `--no-create` guard.
-
-**Why this matters:** A renamed file, a title typo, or a slug normalization edge case can cause silent topic duplication on the forum. Discovering and cleaning up orphaned duplicates manually is painful and risks confusion.
-
-**What is needed:** A `--updates-only` flag (or equivalent) that causes `category push` to error (or at minimum warn clearly) when a local file has no matching remote topic, rather than silently creating one. The working dry-run (Gap 2) would also surface this issue before it happens.
+Full spec in `/home/marcus/code/discourse/dsc/spec/category-workflow.md`.
 
