@@ -55,7 +55,7 @@ The repository is the source for the RCPCH Incubator Playbook: a public document
 - Legal: CC BY-SA 4.0 licensing text.
 
 ## Known Gaps and Inconsistencies (from codebase state)
-- See `worklist.md` for the current active items.
+- See `roadmap.md` for the current active items and improvement plan.
 
 ## Non-Goals
 - This repo does not contain application code for Incubator products; it is documentation-only.
