@@ -43,10 +43,10 @@ The Playbook lives in category 34 ("Playbook") on the RCPCH Incubator Forum. Eac
 - GitHub Actions workflow: `.github/workflows/ALL-BRANCHES-ALL-PRs-build-and-deploy-to-azure.yml`.
 
 ## Tooling (Discourse sync)
-- `dsc` CLI (`~/.cargo/bin/dsc`, v0.10.9+) manages pull/push of Discourse topics.
+- [`dsc`](https://github.com/pacharanero/dsc) CLI (`~/.cargo/bin/dsc`, v0.10.9+) manages pull/push of Discourse topics.
 - Configured as `rcpch` in `~/.config/dsc/dsc.toml`, authenticated as Admin.
 - Canonical offline copy of all Playbook topics lives in `forum-export/` in this repo, Git-tracked.
-- See `roadmap.md` for governance rules and known `dsc` gaps.
+- See `roadmap.md` for governance rules and known [`dsc`](https://github.com/pacharanero/dsc) gaps.
 
 ## Documentation coverage
 - **Forum topics (27):** Principles, SOP, LLMs, AI toolkit, useful tools, dependency management, communications, domains, API management, clinical safety, Flutter/mobile, branding/colours, versioning, Git practices, and more.
@@ -66,7 +66,7 @@ The long-term goal is a **single `docs/` folder** of Markdown files that feeds b
 
 `discourse/` and `zensical/` exist to give clear provenance during the editorial merge. Once content is reconciled, everything lives in `docs/` and the interim folders are removed.
 
-### Metadata convention: YAML front matter (stripped before push by `dsc`)
+### Metadata convention: YAML front matter (stripped before push by [`dsc`](https://github.com/pacharanero/dsc))
 
 Routing metadata is stored in standard YAML front matter (`---` fences) at the top of each file, written by `dsc category pull`. This is stripped by `dsc category push` before sending content to Discourse - the metadata is local-only and never appears in the published post.
 
@@ -101,8 +101,8 @@ Origin: https://github.com/rcpch/playbook.rcpch.tech/...
 
 ### Conventions required for portability
 1. **Discourse is the primary render target.** Write content that looks correct in Discourse first. Zensical conversion is secondary.
-2. **No MkDocs-specific extensions in body content.** Avoid `!!! note` admonitions, `++ctrl+c++` key macros, `:material-icon:` emoji, and `=== "Tab"` tabbed content. Use `> **Note:** ...` blockquotes instead of admonitions. `dsc` will eventually auto-convert admonitions (see roadmap).
-3. **Internal cross-topic links use full `forum.rcpch.tech` URLs.** Relative file paths only work in MkDocs; full forum URLs work in both. `dsc` will eventually rewrite relative links on push (see roadmap).
+2. **No MkDocs-specific extensions in body content.** Avoid `!!! note` admonitions, `++ctrl+c++` key macros, `:material-icon:` emoji, and `=== "Tab"` tabbed content. Use `> **Note:** ...` blockquotes instead of admonitions. [`dsc`](https://github.com/pacharanero/dsc) will eventually auto-convert admonitions (see roadmap).
+3. **Internal cross-topic links use full `forum.rcpch.tech` URLs.** Relative file paths only work in MkDocs; full forum URLs work in both. [`dsc`](https://github.com/pacharanero/dsc) will eventually rewrite relative links on push (see roadmap).
 4. **Images at stable public URLs.** Forum-uploaded images or raw GitHub URLs work in both platforms.
 5. **Navigation maintained separately.** `mkdocs.yml` `nav:` block and Discourse index topic 366 reflect the same logical structure but are different formats, maintained in parallel.
 
@@ -133,7 +133,7 @@ Note: `ai-toolkit.md` references a private forum topic (`/t/openai-platform-acco
 ## Constraints and Assumptions
 - Discourse (`forum.rcpch.tech`) is the canonical publication home.
 - The Git repo is the canonical offline copy and version history for content.
-- `dsc` pushes are always human-reviewed before execution; no automated unattended pushes.
+- [`dsc`](https://github.com/pacharanero/dsc) pushes are always human-reviewed before execution; no automated unattended pushes.
 - The static site at `playbook.rcpch.tech` is being decommissioned; do not invest further in its structure.
 
 

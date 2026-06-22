@@ -41,7 +41,7 @@ The canonical markdown source lives in the `canonical/` directory of [this repos
 
 > **Note:** Make PRs to a feature branch, not directly to `live`. GitHub branch protection is enabled on `live`.
 
-Edits in the repo are pushed to Discourse using the `dsc` CLI:
+Edits in the repo are pushed to Discourse using the [`dsc`](https://github.com/pacharanero/dsc) CLI:
 
 ```console
 dsc category push rcpch 34 canonical/ --dry-run  # preview first
@@ -59,7 +59,7 @@ dsc category push rcpch 34 canonical/ --updates-only  # then push
 ## Adding a new topic
 
 1. Write the content as a Markdown file in `canonical/` with a descriptive filename (slugified title).
-2. Add YAML front matter only if updating an existing topic (the `topic_id` field is how `dsc` routes the push). For new topics, omit `topic_id` and `dsc` will create the topic on push.
+2. Add YAML front matter only if updating an existing topic (the `topic_id` field is how [`dsc`](https://github.com/pacharanero/dsc) routes the push). For new topics, omit `topic_id` and [`dsc`](https://github.com/pacharanero/dsc) will create the topic on push.
 3. Update the [Playbook Index Topic](https://forum.rcpch.tech/t/playbook-index-topic/366) to include the new topic in the sidebar navigation.
 
 <div data-theme-toc="true"> </div>

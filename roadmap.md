@@ -6,7 +6,7 @@ This file captures the active improvement plan. For static aims, objectives, and
 
 ## Governance rules for forum interaction
 
-These rules are **non-negotiable** and must be observed at all times when using `dsc` with `forum.rcpch.tech`.
+These rules are **non-negotiable** and must be observed at all times when using [`dsc`](https://github.com/pacharanero/dsc) with `forum.rcpch.tech`.
 
 ### Human approval required
 > **No changes are ever pushed to the forum without explicit human review and approval.**
@@ -26,7 +26,7 @@ Topic deletion via `dsc post` or any other mechanism is explicitly prohibited. I
 ### Canonical offline copy
 The `canonical/` directory in this repository is the **working source of truth** for Playbook content. The `discourse/` directory is the raw pull baseline (read-only reference).
 
-- `canonical/` is edited here and pushed to Discourse via `dsc`.
+- `canonical/` is edited here and pushed to Discourse via [`dsc`](https://github.com/pacharanero/dsc).
 - After any direct edits made on the forum, re-pull to `discourse/` and reconcile into `canonical/` manually.
 - Git history provides an audit trail of all changes to topic content.
 
@@ -47,7 +47,7 @@ When `dsc topic push` updates a topic, it calls `PUT /posts/{id}.json` with only
 
 ## Single-source file layout
 
-The goal is `canonical/` as the **single working content directory** pushed to Discourse via `dsc` and (while it lasts) the source for the Zensical static site.
+The goal is `canonical/` as the **single working content directory** pushed to Discourse via [`dsc`](https://github.com/pacharanero/dsc) and (while it lasts) the source for the Zensical static site.
 
 **Current layout:**
 - `discourse/` - 27 topics pulled from Discourse; YAML front matter with `topic_id`; used as the pull baseline. Not edited directly.
@@ -73,7 +73,7 @@ The RCPCH playbook previously existed in two diverged locations:
 1. **`zensical/`** - source for `playbook.rcpch.tech` (static site, Zensical/MkDocs).
 2. **`discourse/`** - offline copy of `forum.rcpch.tech/c/playbook` (27 topics).
 
-The goal is a single **canonical offline markdown copy** (`canonical/`), reconciled and edited, published to **Discourse as the long-term home**, using the `dsc` CLI to pull and push topics.
+The goal is a single **canonical offline markdown copy** (`canonical/`), reconciled and edited, published to **Discourse as the long-term home**, using the [`dsc`](https://github.com/pacharanero/dsc) CLI to pull and push topics.
 
 ### Objective
 
@@ -84,7 +84,7 @@ Establish `forum.rcpch.tech/c/playbook` as the single source of truth, backed by
 ### Prerequisites: confirm before starting
 
 - [x] Confirm the exact forum category slug and ID - **category 34** (`forum.rcpch.tech/c/playbook/34`).
-- [x] Confirm `dsc` is authenticated against `forum.rcpch.tech` as Admin with read/write access.
+- [x] Confirm [`dsc`](https://github.com/pacharanero/dsc) is authenticated against `forum.rcpch.tech` as Admin with read/write access.
 - [x] Confirm whether any forum topics are drafts, staff-only, or unlisted (none found in category 34).
 - [x] Working directory is this repo; offline copy in `discourse/`.
 
@@ -94,7 +94,7 @@ Establish `forum.rcpch.tech/c/playbook` as the single source of truth, backed by
 
 - [x] Use `dsc category pull rcpch 34 discourse/` - 27 topics pulled (originally `forum-export/`, renamed).
 - [x] Commit `./discourse/` to git as baseline snapshot (commit `00c10be`).
-- [x] Re-pull after `dsc` Gap 1 implementation - all 27 files now have YAML front matter with `topic_id`, `url`, `pulled_at` (commit `c19a7ff`).
+- [x] Re-pull after [`dsc`](https://github.com/pacharanero/dsc) Gap 1 implementation - all 27 files now have YAML front matter with `topic_id`, `url`, `pulled_at` (commit `c19a7ff`).
 - [x] No pinned, locked, or significant reply-thread topics found in the category.
 
 **Deliverable:** `./discourse/` - 27 markdown files with YAML front matter, committed. ✅
@@ -138,7 +138,7 @@ The static site source (`zensical/`, `mkdocs.yml`) is already in this repository
 
 - [x] All 40 files in `canonical/` reviewed for YAML front matter: existing topics have `topic_id` (routed by ID on push); new topics have no `topic_id` (will be created).
 - [x] Dry-run verified: `dsc category push rcpch 34 canonical/ --dry-run` reports **3 updates, 16 creates, 21 unchanged**. All routing correct.
-- [x] `--no-bump` flag available in current `dsc` build for use during push.
+- [x] `--no-bump` flag available in current [`dsc`](https://github.com/pacharanero/dsc) build for use during push.
 
 **Deliverable:** Push-ready `./canonical/` with verified dry-run. ✅
 
@@ -156,7 +156,7 @@ dsc category push rcpch 34 canonical/ --no-bump
 - [ ] After push: re-pull `canonical/` to capture new `topic_id` values for the 16 created topics.
 - [ ] Write and push the updated index topic (topic 366) with all 40 topics organised into logical sections. Use the new topic IDs from the re-pull.
 - [ ] Spot-check rendering in Discourse: code blocks, images (GitHub raw URLs), internal links, blockquote callouts.
-- [ ] Move `azure-api-management.md` (topic 443) to `/c/sysadmin` via Discourse admin UI (human action - not via `dsc`).
+- [ ] Move `azure-api-management.md` (topic 443) to `/c/sysadmin` via Discourse admin UI (human action - not via [`dsc`](https://github.com/pacharanero/dsc)).
 
 **Deliverable:** Updated, deduplicated playbook live at `forum.rcpch.tech/c/playbook`.
 
@@ -167,7 +167,7 @@ dsc category push rcpch 34 canonical/ --no-bump
 - [ ] Decide the fate of `playbook.rcpch.tech`: redirect to the forum category, replace with a short landing/pointer page, or archive the repo.
 - [ ] Add a redirect or banner so existing links and bookmarks reach the new canonical location.
 - [ ] Update the source repo README to mark it superseded and point to the forum.
-- [ ] Commit the final state to git as the offline backup of record and document the `dsc` pull/push workflow for future maintenance.
+- [ ] Commit the final state to git as the offline backup of record and document the [`dsc`](https://github.com/pacharanero/dsc) pull/push workflow for future maintenance.
 
 **Deliverable:** Single canonical home, redirects in place, offline markdown backup committed, workflow documented.
 
@@ -181,9 +181,9 @@ dsc category push rcpch 34 canonical/ --no-bump
 
 ---
 
-## `dsc` gap analysis
+## [`dsc`](https://github.com/pacharanero/dsc) gap analysis
 
-All gaps identified during this migration have been implemented. The `dsc` binary has been rebuilt from source at commit `0c7e3f0` and installed at `~/.cargo/bin/dsc`.
+All gaps identified during this migration have been implemented. The [`dsc`](https://github.com/pacharanero/dsc) binary has been rebuilt from source at commit `0c7e3f0` and installed at `~/.cargo/bin/dsc`.
 
 | Gap | Feature | Status |
 |---|---|---|
