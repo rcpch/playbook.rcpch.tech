@@ -26,9 +26,9 @@ We now have a small team behind the Incubator and numerous projects. We expect t
 
 There exist a multitude of technological solutions to solve problems in healthcare. Every option has pros and cons, and the field is constantly developing.
 
-Rather than getting lost in the choice paradox, we try to narrow the field of options to things we know work. In a similar way to how medical Life Support courses (APLS, ATLS, ALS, etc) show you '**one** good way' (when many other ways exist) to manage a critically ill patient, we're going to show you The Incubator Way. Other ways might also get the job done, but we need to all know that the team can work together and do it The Incubator Way.
+Rather than getting lost in the 'options paralysis', we try to narrow the field of options to things we know work. In a similar way to how medical Life Support courses (APLS, ATLS, ALS, etc) show you '**one** good way' (when many other ways exist) to manage a critically ill patient, we're going to show you The Incubator Way. Other ways might also get the job done, but we need to all know that the team can work together and do it The Incubator Way.
 
-Though we derive our methods from the wider tech world's best practices, we have adapted them to fit the unique needs of healthcare. Similar to the differences between *health* economics and general economics, *health* technology is unique in a few distinct ways:
+Though we derive our methods from the wider tech world's best practices, we have adapted them to fit the unique needs of healthcare. Health technology is unique in a few distinct ways:
 
 - Regulation and strict safety standards
 - Need for transparency, accuracy, and reliability
