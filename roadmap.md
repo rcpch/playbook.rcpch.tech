@@ -24,10 +24,10 @@ The only operations permitted are:
 Topic deletion via `dsc post` or any other mechanism is explicitly prohibited. If a topic needs to be retired, it should be unlisted or archived directly in the Discourse admin UI by a human.
 
 ### Canonical offline copy
-The `forum-export/` directory in this repository is the **canonical offline Git-tracked copy** of all Playbook topics. It is the source of truth for the content of each topic.
+The `discourse/` directory in this repository is the **canonical offline Git-tracked copy** of all Playbook topics. It is the source of truth for the content of each topic. (Previously named `forum-export/`; renamed for clarity — see roadmap for the path to a final `docs/` directory.)
 
 - Every time topics are pulled from Discourse, the result is committed to this repo.
-- Edits to Playbook content are made here (in `forum-export/`) and pushed to Discourse, **or** made directly inline in Discourse — but either way, the repo should be kept in sync by pulling after any inline forum edits.
+- Edits to Playbook content are made here (in `discourse/`) and pushed to Discourse, **or** made directly inline in Discourse — but either way, the repo should be kept in sync by pulling after any inline forum edits.
 - Git history provides an audit trail of all changes to topic content.
 
 ### Preserving Discourse edit history
@@ -37,8 +37,10 @@ When `dsc topic push` updates a topic, it calls `PUT /posts/{id}.json` with only
 
 ## Immediate content tasks
 
-- [ ] **Complete the Discourse index topic** (`forum.rcpch.tech/t/playbook-index-topic/366`). The current index is incomplete — it is missing ~14 topics, has a "WIP" placeholder for "Web development", and has an odd self-referential link. Edit `forum-export/playbook-index-topic.md` to create a clean, complete index structure with all current topics organised into logical sections. Push with `dsc topic push rcpch 366 forum-export/playbook-index-topic.md`. Note: topic IDs for all topics are needed — implement `dsc` Gap 1 first (front matter embedding) or look them up from the forum manually.
-- [ ] Bring the `colours.md` file from the forum into these docs (it exists at `forum-export/rcpch-main-brand-colours.md` — review and add `docs/branding/colours.md` equivalent).
+- [ ] **Security: move `azure-api-management.md` to `/c/sysadmin`** on the forum (manual action by human admin — do not publish to public category). Contains Azure subscription ID, resource group names, APIM service names, admin portal deep-links.
+- [ ] **Security: edit `domain-names-comprehensive-list-and-contact-points.md`** — remove `olly.rice@rcpch.ac.uk` direct personal email; replace with a role/team contact description before the category goes public.
+- [ ] **Complete the Discourse index topic** (`forum.rcpch.tech/t/playbook-index-topic/366`). The current index is incomplete — missing ~14 topics, has a "WIP" placeholder for "Web development", and a self-referential link. Edit `discourse/playbook-index-topic.md` and push with `dsc topic push rcpch 366 discourse/playbook-index-topic.md`. Topic IDs needed — implement `dsc` Gap 1 first or look them up manually from the forum.
+- [ ] Bring the `colours.md` content from the forum into the consolidated docs (exists at `discourse/rcpch-main-brand-colours.md` — review and reconcile with `zensical/branding/colours.md`).
 - [ ] Full review of all docs for style and tonal consistency.
 - [ ] Migrate useful content from `to-do/to-do.md` into the docs (the pip uninstall tip and the Incubator SOP guidelines are publication-ready).
 
@@ -46,14 +48,20 @@ When `dsc topic push` updates a topic, it calls `PUT /posts/{id}.json` with only
 
 ## Single-source file layout (target state)
 
-The goal is `forum-export/` as the **single canonical content directory** used by both `dsc category push` (to Discourse) and `mkdocs.yml` (for the Zensical static site, while it lasts). See `spec.md` for the content conventions (CommonMark-only, full forum URLs for cross-links, etc.).
+The goal is `docs/` as the **single canonical content directory** used by both `dsc category push` (to Discourse) and `mkdocs.yml` (for the Zensical static site, while it lasts). See `spec.md` for content conventions and the `<!--dsc-meta` metadata format.
+
+**Current interim layout:**
+- `discourse/` — 27 topics pulled from Discourse (renamed from `forum-export/`)
+- `zensical/` — 34 `.md` files from the original static site (`mkdocs.yml` `docs_dir: zensical`)
+- `docs/` _(future)_ — final single canonical source
 
 Tasks to get there:
 
-- [ ] Point `mkdocs.yml` `docs_dir` at `forum-export/` (or create a symlink from `docs/` to `forum-export/`). Update `nav:` to reflect the flat file structure.
-- [ ] Audit `forum-export/` files for MkDocs-specific markup that would not render in Discourse (admonitions, emoji macros, key macros) and convert to portable equivalents.
-- [ ] Audit `docs/` for content not yet in `forum-export/` (check `mkdocs.yml` nav vs forum topics — several `docs/` pages have no forum equivalent yet: git walkthrough, signed commits, local dev setup, venv, Docker, Python specifics, security/SSH keys, Ubuntu hardening, contributing, projects, legal).
-- [ ] For each `docs/`-only page: decide whether to add it as a new forum topic or fold it into an existing topic.
+- [ ] Reconcile `discourse/` and `zensical/` into `docs/` via the editorial inventory (Stage 3).
+- [ ] Add `<!--dsc-meta ... -->` HTML-comment metadata blocks to all files in `discourse/` once dsc Gap 1 is implemented — re-pull to get properly-annotated versions.
+- [ ] Audit `zensical/` for content not yet in `discourse/` — several pages have no forum equivalent yet: git walkthrough, signed commits, local dev setup, venv, Docker, Python specifics, security/SSH keys, Ubuntu hardening, contributing, projects, legal.
+- [ ] For each `zensical/`-only page: decide whether to add as a new forum topic or fold into an existing topic.
+- [ ] Once merged into `docs/`, update `mkdocs.yml` `docs_dir: docs` and update `dsc` commands to use `docs/`.
 
 ---
 
@@ -61,10 +69,10 @@ Tasks to get there:
 
 The RCPCH playbook currently exists in two diverged locations:
 
-1. **This repo** — source for `playbook.rcpch.tech` (static site, content in `docs/`).
-2. **Forum category** — `forum.rcpch.tech/c/playbook` (Discourse topics, with newer content that postdates the site).
+1. **`zensical/`** — source for `playbook.rcpch.tech` (static site, Zensical/MkDocs).
+2. **`discourse/`** — offline copy of `forum.rcpch.tech/c/playbook` (27 topics).
 
-The goal is a single **canonical offline markdown copy**, reconciled and edited, then published to **Discourse as the long-term home**, using the `dsc` CLI to pull and push topics.
+The goal is a single **canonical offline markdown copy** (`docs/`), reconciled and edited, published to **Discourse as the long-term home**, using the `dsc` CLI to pull and push topics.
 
 ### Objective
 
@@ -77,29 +85,29 @@ Establish `forum.rcpch.tech/c/playbook` as the single source of truth, backed by
 - [x] Confirm the exact forum category slug and ID — **category 34** (`forum.rcpch.tech/c/playbook/34`).
 - [x] Confirm `dsc` is authenticated against `forum.rcpch.tech` as Admin with read/write access.
 - [ ] Confirm whether any forum topics in the category are drafts, staff-only, or unlisted.
-- [x] Working directory is this repo (`playbook.rcpch.tech`); offline copy in `forum-export/`.
+- [x] Working directory is this repo; offline copy in `discourse/`.
 
 ---
 
 ### Stage 1 — Extract forum content ✅ done (baseline)
 
-- [x] Use `dsc category pull rcpch 34 forum-export/` — 27 topics pulled.
-- [x] Commit `./forum-export/` to git as baseline snapshot (commit `00c10be`).
-- [ ] Re-pull after `dsc` Gap 1 is implemented (topic IDs in front matter) to produce a properly-annotated baseline.
+- [x] Use `dsc category pull rcpch 34 discourse/` — 27 topics pulled (originally `forum-export/`, renamed).
+- [x] Commit `./discourse/` to git as baseline snapshot (commit `00c10be`).
+- [ ] Re-pull after `dsc` Gap 1 is implemented (HTML-comment metadata) to produce properly-annotated files.
 - [ ] Note any topics that are pinned, locked, or have significant reply threads.
 
-**Deliverable:** `./forum-export/` — 27 markdown files, committed. ✅
+**Deliverable:** `./discourse/` — 27 markdown files, committed. ✅
 
 ---
 
 ### Stage 2 — Original site content ✅ already in repo
 
-The static site source (`docs/`, `mkdocs.yml`) is already in this repository. No separate export needed.
+The static site source (`zensical/`, `mkdocs.yml`) is already in this repository. No separate export needed.
 
-- [x] `docs/` contains 34 `.md` files; `mkdocs.yml` captures the full nav structure.
+- [x] `zensical/` contains 34 `.md` files; `mkdocs.yml` captures the full nav structure.
 - [x] Site sections: Home, Principles, Developer's Guide, Projects, Legal.
 
-**Deliverable:** `docs/` and `mkdocs.yml` in this repo. ✅
+**Deliverable:** `zensical/` and `mkdocs.yml` in this repo. ✅
 
 ---
 

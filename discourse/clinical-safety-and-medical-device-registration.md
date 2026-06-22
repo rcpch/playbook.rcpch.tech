@@ -1,3 +1,10 @@
+---
+title: Clinical Safety and Medical Device Registration
+topic_id: 584
+url: https://forum.rcpch.tech/t/clinical-safety-and-medical-device-registration/584
+pulled_at: 2026-06-22T09:57:54Z
+---
+
 ### Clinical Safety Officers (CSOs)
 
 Both @eatyourpeas and @pacharanero are [NHS Digital-trained](https://digital.nhs.uk/services/clinical-safety/clinical-risk-management-training) Clinical Safety Officers, and provide the Clinical Safety Officer role for all the RCPCH Incubator projects.

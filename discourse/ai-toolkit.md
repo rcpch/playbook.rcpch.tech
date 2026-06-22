@@ -1,3 +1,10 @@
+---
+title: AI Toolkit
+topic_id: 389
+url: https://forum.rcpch.tech/t/ai-toolkit/389
+pulled_at: 2026-06-22T09:57:56Z
+---
+
 ### OpenAI Platform
 The RCPCH has an account with OpenAI Platform (ChatGPT models), details and credentials are in [this topic](https://forum.rcpch.tech/t/openai-platform-account/385) for security. Ask a member of @admins for access to the key.
 

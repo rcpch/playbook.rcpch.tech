@@ -54,20 +54,74 @@ The Playbook lives in category 34 ("Playbook") on the RCPCH Incubator Forum. Eac
 
 ## Single-source content strategy
 
-The long-term goal is a **single folder of Markdown files** that feeds both the Zensical static site and the Discourse forum, with navigation maintained separately for each platform. This is achievable with the following conventions:
+The long-term goal is a **single `docs/` folder** of Markdown files that feeds both the Zensical static site and the Discourse forum, with navigation maintained separately for each platform.
 
-### What is compatible between platforms
-- Standard CommonMark: headings, lists, paragraphs, fenced code blocks, tables, bold/italic, blockquotes.
-- YAML front matter: MkDocs uses it for page metadata; `dsc` strips it before pushing to Discourse (once dsc gap 1 is implemented — see `roadmap.md`).
+### Interim folder layout (during migration)
+
+| Folder | Contents | Target |
+|---|---|---|
+| `discourse/` | 27 topics pulled from `forum.rcpch.tech/c/playbook` | → merge into `docs/` |
+| `zensical/` | 34 `.md` files from the original static site | → merge into `docs/` |
+| `docs/` _(future)_ | Single canonical content source, feeds both platforms | Final state |
+
+`discourse/` and `zensical/` exist to give clear provenance during the editorial merge. Once content is reconciled, everything lives in `docs/` and the interim folders are removed.
+
+### Metadata convention: YAML front matter (stripped before push by `dsc`)
+
+Routing metadata is stored in standard YAML front matter (`---` fences) at the top of each file, written by `dsc category pull`. This is stripped by `dsc category push` before sending content to Discourse — the metadata is local-only and never appears in the published post.
+
+```yaml
+---
+title: "About this Playbook"
+topic_id: 421
+url: https://forum.rcpch.tech/t/about-this-playbook/421
+pulled_at: 2026-06-22T09:00:00Z
+---
+```
+
+Contributor information (`Authors`, `Origin`, `Reviewers`) is preserved in HTML comments already present at the top of many topics (written directly into the Discourse topic body). These are invisible in both Discourse and MkDocs rendering. The YAML front matter sits above these HTML comments; both are invisible to readers.
+
+Example of a fully-annotated file:
+
+```markdown
+---
+title: "About this Playbook"
+topic_id: 421
+url: https://forum.rcpch.tech/t/about-this-playbook/421
+pulled_at: 2026-06-22T09:00:00Z
+---
+
+<!--
+Authors: Dr Marcus Baw, Dr Anchit Chandran
+Origin: https://github.com/rcpch/playbook.rcpch.tech/...
+-->
+
+[visible content begins here]
+```
 
 ### Conventions required for portability
-1. **No MkDocs-specific extensions in body content.** Avoid `!!! note` admonitions, `++ctrl+c++` key macros, `:material-icon:` emoji, and `=== "Tab"` tabbed content — these do not render in Discourse. Use blockquotes with bold lead-ins instead of admonitions: `> **Note:** ...`
-2. **Internal cross-topic links use full `forum.rcpch.tech` URLs.** Since Discourse is the canonical home, links like `https://forum.rcpch.tech/t/versioning/NNN` are correct for Discourse and also valid (as external links) in the MkDocs build. Relative file paths (`../versioning.md`) only work in MkDocs and break in Discourse.
-3. **Images at stable public URLs.** Forum-uploaded images (Discourse provides a stable `https://forum.rcpch.tech/uploads/…` URL) work in both platforms. Alternatively, raw GitHub URLs for assets in this repo.
-4. **Navigation maintained separately.** The `mkdocs.yml` `nav:` block and the Discourse index topic (topic 366) both need to reflect the same logical structure, but are necessarily different formats. They are maintained in parallel, not generated from a single source — keeping them in sync is a manual but low-frequency task.
+1. **Discourse is the primary render target.** Write content that looks correct in Discourse first. Zensical conversion is secondary.
+2. **No MkDocs-specific extensions in body content.** Avoid `!!! note` admonitions, `++ctrl+c++` key macros, `:material-icon:` emoji, and `=== "Tab"` tabbed content. Use `> **Note:** ...` blockquotes instead of admonitions. `dsc` will eventually auto-convert admonitions (see roadmap).
+3. **Internal cross-topic links use full `forum.rcpch.tech` URLs.** Relative file paths only work in MkDocs; full forum URLs work in both. `dsc` will eventually rewrite relative links on push (see roadmap).
+4. **Images at stable public URLs.** Forum-uploaded images or raw GitHub URLs work in both platforms.
+5. **Navigation maintained separately.** `mkdocs.yml` `nav:` block and Discourse index topic 366 reflect the same logical structure but are different formats, maintained in parallel.
 
-### File layout (target state)
-`forum-export/` is the single canonical content directory. Files here are written in portable CommonMark. The `mkdocs.yml` `docs_dir` is pointed at `forum-export/` (or files are symlinked/copied). `dsc category push` reads from the same directory.
+### What is compatible between platforms without conversion
+- Standard CommonMark: headings, lists, paragraphs, fenced code blocks, tables, bold/italic, blockquotes.
+- HTML comments (stripped by both renderers — used for metadata).
+- Fenced code blocks with language hints.
+
+## Security and publication status
+
+The Discourse Playbook category is currently **private**. The Zensical static site is **public**. Before making the forum category public, the following must be resolved:
+
+| Topic | Status | Action |
+|---|---|---|
+| `azure-api-management.md` | 🔴 Do not publish | Move to `/c/sysadmin`. Contains Azure subscription ID, resource group names, APIM service names, and admin portal deep-links — operational admin content. |
+| `domain-names-comprehensive-list-and-contact-points.md` | 🟡 Edit before publishing | Remove `olly.rice@rcpch.ac.uk` direct personal email; replace with role/team contact description. |
+| All other 25 topics | ✅ OK to publish | No credentials, internal IPs, or security-sensitive content found. |
+
+Note: `ai-toolkit.md` references a private forum topic (`/t/openai-platform-account/385`) for credentials — that link is safe to publish because the target topic is private; the playbook topic itself contains no credentials.
 
 ## Known Gaps and Inconsistencies (from codebase state)
 - See `roadmap.md` for the current active items and improvement plan.
@@ -81,4 +135,5 @@ The long-term goal is a **single folder of Markdown files** that feeds both the 
 - The Git repo is the canonical offline copy and version history for content.
 - `dsc` pushes are always human-reviewed before execution; no automated unattended pushes.
 - The static site at `playbook.rcpch.tech` is being decommissioned; do not invest further in its structure.
+
 

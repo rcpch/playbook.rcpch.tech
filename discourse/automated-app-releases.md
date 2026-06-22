@@ -1,3 +1,10 @@
+---
+title: Automated App Releases
+topic_id: 478
+url: https://forum.rcpch.tech/t/automated-app-releases/478
+pulled_at: 2026-06-22T09:57:55Z
+---
+
 We currently have no apps released to production in either app store so we follow a simple continuous deployment model. Pushing to `main` builds the apps in GitHub Actions and automatically releases the build to our named internal testers.
 
 ## Android

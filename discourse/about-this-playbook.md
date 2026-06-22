@@ -1,3 +1,10 @@
+---
+title: About this Playbook
+topic_id: 421
+url: https://forum.rcpch.tech/t/about-this-playbook/421
+pulled_at: 2026-06-22T09:57:56Z
+---
+
 <!--
 Authors: Dr Marcus Baw, Dr Anchit Chandran
 Origin: https://github.com/rcpch/playbook.rcpch.tech/blob/live/docs/developer/start-here.md

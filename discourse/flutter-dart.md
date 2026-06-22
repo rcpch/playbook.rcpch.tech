@@ -1,3 +1,10 @@
+---
+title: Flutter/Dart
+topic_id: 373
+url: https://forum.rcpch.tech/t/flutter-dart/373
+pulled_at: 2026-06-22T09:57:56Z
+---
+
 ## Introduction
 
 **Flutter** is a framework for developing a single codebase in a Java-like language called **Dart**, which is then compiled into **native** applications for any of the following target platforms: Android, iOS, MacOS, Windows, Linux, and Web.

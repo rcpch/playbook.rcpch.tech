@@ -1,3 +1,10 @@
+---
+title: Azure API Management
+topic_id: 443
+url: https://forum.rcpch.tech/t/azure-api-management/443
+pulled_at: 2026-06-22T09:57:56Z
+---
+
 <!-- This content was removed from `internal/azure-apim.md` in the dGC docs site, updated, and placed here on 2025.06.05 10:50:41 BST by @pacharanero, because it has relevance to multiple APIs now, not just Growth. commit: https://github.com/rcpch/digital-growth-charts-documentation/commit/95b31178b61404cc61069984229c527510dac222 -->
 
 ## Azure API Management service

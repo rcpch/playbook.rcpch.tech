@@ -1,3 +1,10 @@
+---
+title: Detailed Flutter Development Setup on Ubuntu Linux (Android/Web/Linux targets)
+topic_id: 526
+url: https://forum.rcpch.tech/t/detailed-flutter-development-setup-on-ubuntu-linux-android-web-linux-targets/526
+pulled_at: 2026-06-22T09:57:54Z
+---
+
 I had to reinstall my Flutter setup recently and it was no easier using [my generic guide in the Flutter main topic](https://forum.rcpch.tech/t/flutter-dart/373) than when I last did it a few months back, so I thought I'd keep a more detailed list of the useful commands and setup.
 
 > [!check]

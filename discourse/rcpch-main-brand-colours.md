@@ -1,3 +1,10 @@
+---
+title: RCPCH Main Brand Colours
+topic_id: 384
+url: https://forum.rcpch.tech/t/rcpch-main-brand-colours/384
+pulled_at: 2026-06-22T09:57:53Z
+---
+
 We have clear brand guidance on the colours we use in our digital products. This is to ensure that our products are recognisable and consistent across all platforms.
 
 RCPCH now has an expanded colour palette to meet the growing needs of all communications. Colour is a useful tool to communicate structure, meaning, and to add interest but it is important that it is used judiciously. It can be used to contrast or co-ordinate.

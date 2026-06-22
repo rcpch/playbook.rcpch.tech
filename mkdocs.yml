@@ -16,6 +16,9 @@ repo_name: rcpch/rcpch-incubator-playbook
 edit_uri: blob/live/docs
 
 # development port and address for local development server (default is localhost:8000)
+docs_dir: zensical
+
+# development port and address for local development server (default is localhost:8000)
 dev_addr: "0.0.0.0:8000"
 
 nav:
@@ -125,11 +128,7 @@ markdown_extensions:
       emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.keys
-  - pymdownx.snippets:
-      check_paths: true
-      base_path: .
-      auto_append:
-        - includes/_abbreviations.md
+  - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

@@ -1,3 +1,10 @@
+---
+title: Principles
+topic_id: 446
+url: https://forum.rcpch.tech/t/principles/446
+pulled_at: 2026-06-22T09:57:55Z
+---
+
 <!--
 title: General Principles
 reviewers: Dr Anchit Chandran, Dr Marcus Baw

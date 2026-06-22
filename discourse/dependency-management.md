@@ -1,3 +1,10 @@
+---
+title: Dependency Management
+topic_id: 580
+url: https://forum.rcpch.tech/t/dependency-management/580
+pulled_at: 2026-06-22T09:57:54Z
+---
+
 Dependencies are an important part of software development. Our position as a small mostly part-time team within a small organisation that is not dedicated to software development means we need a personalised approach to adding and managing our dependencies.
 
 ## Principles

@@ -1,3 +1,10 @@
+---
+title: Run a command that isn't installed in a Docker container using `nsenter`
+topic_id: 586
+url: https://forum.rcpch.tech/t/run-a-command-that-isnt-installed-in-a-docker-container-using-nsenter/586
+pulled_at: 2026-06-22T09:57:54Z
+---
+
 Today I learned that there is such a thing as a 'distroless' Docker image, this is essentially removing ALL non-essential OS binaries from a container so as to render it extremely hard for an attacker to move laterally if the app running in the container is compromised. If they found a vulnerability and exploited it to get a root shell, they would find there are *no standard Unix/Linux tools installed* to exploit with!
 
 I found this out as part of a small internet odyssey that started off looking for [Bitnami](https://www.reddit.com/r/selfhosted/comments/1ma5d8t/migrating_away_from_bitnami/) alternatives but ended up on this GitHub README.md:

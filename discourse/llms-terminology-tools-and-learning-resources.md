@@ -1,3 +1,10 @@
+---
+title: LLMs - terminology, tools, and learning resources
+topic_id: 416
+url: https://forum.rcpch.tech/t/llms-terminology-tools-and-learning-resources/416
+pulled_at: 2026-06-22T09:57:56Z
+---
+
 Inspired by @pacharanero's list of helpful tech tools he's found over his career (discovering clipboard managers were even a thing was a game-changer), this is a patchwork list of everything nice, good, and cool I've found related to AI / LLMs
 
 # 🤖 LLMs

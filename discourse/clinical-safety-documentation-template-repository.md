@@ -1,3 +1,10 @@
+---
+title: Clinical Safety Documentation Template repository
+topic_id: 612
+url: https://forum.rcpch.tech/t/clinical-safety-documentation-template-repository/612
+pulled_at: 2026-06-22T09:57:53Z
+---
+
 When we created the [dGC clinical safety documentation](https://growth.rcpch.ac.uk/), we took the decision to do it
 * fully public and in the open,
 * with Markdown content source (as opposed to a Word doc),

@@ -1,3 +1,10 @@
+---
+title: Useful Tools for RCPCH Developers (updated for 2025)
+topic_id: 417
+url: https://forum.rcpch.tech/t/useful-tools-for-rcpch-developers-updated-for-2025/417
+pulled_at: 2026-06-22T09:57:56Z
+---
+
 ## Launcher
 A launcher allows you to pop up a text box using a predefined keyboard shortcut (for me, using Albert on Linux, it is <kbd>Ctrl</kbd> + <kbd>Space</kbd>) and then **type the thing you want to open** - it can be a bookmark, a file, or an application, and it will just start. Saves a lot of mousing and finding things in Start menus.
 * Albert Launcher (Linux only) https://albertlauncher.github.io/

@@ -1,3 +1,10 @@
+---
+title: "`llms.txt` - surfacing documentation for LLMs"
+topic_id: 673
+url: https://forum.rcpch.tech/t/llms-txt-surfacing-documentation-for-llms/673
+pulled_at: 2026-06-22T09:57:53Z
+---
+
 `llms.txt`is a new and rapidly-adopted textual format for documentation that strips away all unnecessary html (ie. *wasted tokens*) from the docs, presenting the docs in a context-window-efficient and javascript-free way. 
 
 ### Standards

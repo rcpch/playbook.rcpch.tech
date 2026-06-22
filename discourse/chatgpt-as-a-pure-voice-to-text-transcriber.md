@@ -1,3 +1,10 @@
+---
+title: ChatGPT as a pure voice-to-text transcriber
+topic_id: 542
+url: https://forum.rcpch.tech/t/chatgpt-as-a-pure-voice-to-text-transcriber/542
+pulled_at: 2026-06-22T09:57:54Z
+---
+
 Just dropping this into the Playbook in case it is of use to others. I've recently been using ChatGPT as a pure transcription service, it is incredibly good, highly accurate, and much more 'context-aware' than other services I've tried such as Otter.ai. It uses their [Whisper](https://openai.com/index/whisper/) service for this.
 
 If you instruct it to ONLY transcribe what you say, with no paraphrasing, to summarising, no sycophantic congratulatory comments about how great you are for thinking of those words, it will just do it. You can then copy-paste the output into whatever document you are writing.

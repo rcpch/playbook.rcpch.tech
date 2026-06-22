@@ -1,3 +1,10 @@
+---
+title: Communications tools
+topic_id: 583
+url: https://forum.rcpch.tech/t/communications-tools/583
+pulled_at: 2026-06-22T09:57:54Z
+---
+
 ### Forum :discourse: 
 
 Primarily the RCPCH Incubator team uses **this Discourse forum** for communications. This gives us the advantages of a searchable archive of all our discussion and decisionmaking. The forum enables us to respect people's working patterns, and most importantly even a *new* member of the team has access to all our previous discussion, instead of just an empty email inbox.

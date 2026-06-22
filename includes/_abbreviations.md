@@ -1,4 +1,4 @@
-<!-- This file contains all the tooltip abbreviations used throughout the site, and is automatically included in every page via the `auto_append` directive in mkdocs.yml -->
+<!-- Deprecated: prefer linking to authoritative sources instead of relying on auto-appended abbreviations. -->
 
 <!-- Please list abbreviations in alphabetical order, this aids detection of duplicates -->
 

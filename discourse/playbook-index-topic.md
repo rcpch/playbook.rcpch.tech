@@ -1,3 +1,10 @@
+---
+title: Playbook Index Topic
+topic_id: 366
+url: https://forum.rcpch.tech/t/playbook-index-topic/366
+pulled_at: 2026-06-22T09:57:57Z
+---
+
 <!--
 Author: Dr Marcus Baw
 Origin: Written for the Discourse forum version

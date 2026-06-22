@@ -1,3 +1,10 @@
+---
+title: "RFC: SOP for the RCPCH Incubator"
+topic_id: 420
+url: https://forum.rcpch.tech/t/rfc-sop-for-the-rcpch-incubator/420
+pulled_at: 2026-06-22T09:57:56Z
+---
+
 <!--
 Author: Dr Marcus Baw
 Origin: Transferred from https://github.com/rcpch/playbook.rcpch.tech/blob/live/to-do/to-do.md
