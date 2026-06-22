@@ -1,0 +1,94 @@
+<!--
+Origin: zensical/principles/12fa.md
+reviewers: Dr Anchit Chandran, Dr Marcus Baw
+-->
+
+The Twelve-Factor App methodology is for building scalable, maintainable, and portable web applications or **Software-As-A-Service** apps. It was created by Heroku co-founder Adam Wiggins in 2011 and has become a popular approach.
+
+The full details are on their website: [12factor.net](https://12factor.net/).
+
+Where possible, we provide examples of our flavour of their guidance.
+
+## 1. Codebase: One codebase tracked in revision control, many deploys.
+
+We have only one codebase for each project, from which we deploy different versions (e.g. development, staging, live).
+
+## 2. Dependencies: Explicitly declare and isolate dependencies.
+
+Our projects do not rely on new developers already having dependencies installed.
+
+We use `pip`, with a `requirements.txt` file, for explicitly declaring required dependencies.
+
+We use `virtualenv`, `venv`, or `docker` for _dependency isolation_ to ensure no external dependencies _leak_ into our projects.
+
+## 3. Config: Store config in the environment.
+
+Our apps' _config_ refers to anything which varies between our development, staging, and live deployments.
+
+An example of this is API tokens.
+
+We often use 'developer' API tokens with infinite use. Storing tokens as constants in the code is a complete violation of twelve-factor. This would expose us to API usage abuse if the token were accidentally committed (which is easily done).
+
+Instead, we store config inside _environment variables_ (or env vars) and ensure our `.gitignore` will ignore `.env` files.
+
+Env vars are safely accessed in code. For example, in our Epilepsy12 Django Project:
+
+```py title="settings.py"
+RCPCH_CENSUS_TOKEN = os.getenv("DJANGO_REST_FRAMEWORK_TOKEN", None)
+```
+
+We DO commit an `example.env` file specifying the required environment variables.
+
+## 4. Backing services: Treat backing services as attached resources.
+
+Any online service used during regular operation, external to our app, is called a _backing service_.
+
+We make **"no distinction between local and third-party services"**. Urls and any required credentials are stored inside env vars, allowing them to be swapped between deployments without code changes.
+
+Each of these _resources_ is 'attached' to our apps (referring to the "loose coupling" between the third-party service and our app).
+
+## 5. Build, release, run: Strictly separate build and run stages.
+
+Using this Incubator Playbook Zensical site as an example, we ensure our apps have "strict separation between the build, release and run stages".
+
+We use Github Actions to automate the build -> release -> deployment runtime environments process, which is usually specified in the `.github/workflows` folder in the repo's root.
+
+## 6. Processes: Execute the app as one or more stateless processes.
+
+We use Docker, a popular containerisation platform, to design our apps to be **stateless**. They do not use or store persistent data on the local file system. Data which _does_ need to be kept is stored either in a database or using environment variables.
+
+This design enables our apps to easily scale when required.
+
+## 7. Port binding: Export services via port binding.
+
+Docker allows us to define ports used by _external_ applications interacting with the container, which map to _different_ ports _inside_ our container.
+
+## 8. Concurrency: Scale out via the process model.
+
+Our independent, stateless apps - built using Docker containers - ensure they can be scaled horizontally to handle any increased load.
+
+## 9. Disposability: Maximize robustness with fast startup and graceful shutdown.
+
+On start-up, we specify "boot" processes in a pattern to minimise inefficiency. For example, seeding the database in our `rcpch-census-platform` project is a time-intensive process, thus is done only once, and persists between runtimes.
+
+We employ graceful shutdown processes by ensuring we kill the web app before the database.
+
+## 10. Dev/prod parity: Keep development, staging, and production as similar as possible.
+
+Our apps are designed for "continuous deployment" by keeping the development and production as similar as possible.
+
+Using our Epilepsy12 Django project as an example, we use Postgres for local development and production deployment instead of using SQLite locally and PostgreSQL in production.
+
+This project uses another RCPCH Incubator-developed dependency through calls to the RCPCH Census API to get deprivation scores. We use the same code for API calls in local development and production, differentiating authorization tokens via env vars.
+
+## 11. Logs: Treat logs as event streams.
+
+We will implement logging to standard output within our Django projects. This will allow us to collect and analyze logs without complicated file-based systems. It also enables horizontal scaling by collating logs from multiple instances.
+
+## 12. Admin processes: Run admin/management tasks as one-off processes.
+
+Admin tasks often require a longer time to run and a human developer for oversight. One example includes significant database migrations, with the potential for errors, and we don't wish to lose or expose sensitive live patient data.
+
+These tasks are not done automatically. Instead, they are done as careful, one-off processes, often in a team meeting with senior developers.
+
+<div data-theme-toc="true"> </div>
