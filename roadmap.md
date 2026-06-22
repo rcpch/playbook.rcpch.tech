@@ -37,9 +37,23 @@ When `dsc topic push` updates a topic, it calls `PUT /posts/{id}.json` with only
 
 ## Immediate content tasks
 
-- [ ] Bring the `colours.md` file from the forum (`forum.rcpch.tech/c/playbook`) into these docs.
+- [ ] **Complete the Discourse index topic** (`forum.rcpch.tech/t/playbook-index-topic/366`). The current index is incomplete — it is missing ~14 topics, has a "WIP" placeholder for "Web development", and has an odd self-referential link. Edit `forum-export/playbook-index-topic.md` to create a clean, complete index structure with all current topics organised into logical sections. Push with `dsc topic push rcpch 366 forum-export/playbook-index-topic.md`. Note: topic IDs for all topics are needed — implement `dsc` Gap 1 first (front matter embedding) or look them up from the forum manually.
+- [ ] Bring the `colours.md` file from the forum into these docs (it exists at `forum-export/rcpch-main-brand-colours.md` — review and add `docs/branding/colours.md` equivalent).
 - [ ] Full review of all docs for style and tonal consistency.
-- [ ] Migrate useful content from `to-do/to-do.md` into the docs (the pip uninstall tip and the Incubator SOP guidelines are both publication-ready).
+- [ ] Migrate useful content from `to-do/to-do.md` into the docs (the pip uninstall tip and the Incubator SOP guidelines are publication-ready).
+
+---
+
+## Single-source file layout (target state)
+
+The goal is `forum-export/` as the **single canonical content directory** used by both `dsc category push` (to Discourse) and `mkdocs.yml` (for the Zensical static site, while it lasts). See `spec.md` for the content conventions (CommonMark-only, full forum URLs for cross-links, etc.).
+
+Tasks to get there:
+
+- [ ] Point `mkdocs.yml` `docs_dir` at `forum-export/` (or create a symlink from `docs/` to `forum-export/`). Update `nav:` to reflect the flat file structure.
+- [ ] Audit `forum-export/` files for MkDocs-specific markup that would not render in Discourse (admonitions, emoji macros, key macros) and convert to portable equivalents.
+- [ ] Audit `docs/` for content not yet in `forum-export/` (check `mkdocs.yml` nav vs forum topics — several `docs/` pages have no forum equivalent yet: git walkthrough, signed commits, local dev setup, venv, Docker, Python specifics, security/SSH keys, Ubuntu hardening, contributing, projects, legal).
+- [ ] For each `docs/`-only page: decide whether to add it as a new forum topic or fold it into an existing topic.
 
 ---
 
@@ -60,33 +74,32 @@ Establish `forum.rcpch.tech/c/playbook` as the single source of truth, backed by
 
 ### Prerequisites — confirm before starting
 
-- [ ] Confirm the exact forum category slug and ID (`forum.rcpch.tech/c/playbook` — verify the `/c/<slug>/<id>` form for `dsc`).
-- [ ] Confirm `dsc` is authenticated against `forum.rcpch.tech` with an API key that has read access to the category (and write for the push stage).
+- [x] Confirm the exact forum category slug and ID — **category 34** (`forum.rcpch.tech/c/playbook/34`).
+- [x] Confirm `dsc` is authenticated against `forum.rcpch.tech` as Admin with read/write access.
 - [ ] Confirm whether any forum topics in the category are drafts, staff-only, or unlisted.
-- [ ] Decide on a working directory / git repo to hold the canonical offline copy.
+- [x] Working directory is this repo (`playbook.rcpch.tech`); offline copy in `forum-export/`.
 
 ---
 
-### Stage 1 — Extract forum content
+### Stage 1 — Extract forum content ✅ done (baseline)
 
-Pull everything currently in the forum playbook category into local markdown.
+- [x] Use `dsc category pull rcpch 34 forum-export/` — 27 topics pulled.
+- [x] Commit `./forum-export/` to git as baseline snapshot (commit `00c10be`).
+- [ ] Re-pull after `dsc` Gap 1 is implemented (topic IDs in front matter) to produce a properly-annotated baseline.
+- [ ] Note any topics that are pinned, locked, or have significant reply threads.
 
-- [ ] Use `dsc` to pull all topics from `/c/playbook` into `./forum-export/`.
-- [ ] Verify the pull captured: topic titles, body markdown, category/tags, author, timestamps, and topic URLs/IDs.
-- [ ] Note pinned, locked, or reply-heavy topics (replies may contain content worth promoting into the body).
-- [ ] Commit `./forum-export/` to git unmodified as a baseline snapshot.
-
-**Deliverable:** `./forum-export/` — faithful markdown copy of all current forum playbook content, committed as-is.
+**Deliverable:** `./forum-export/` — 27 markdown files, committed. ✅
 
 ---
 
-### Stage 2 — Extract original site content
+### Stage 2 — Original site content ✅ already in repo
 
-- [ ] Identify the `docs/` content and copy source markdown (and nav config) into `./site-export/`.
-- [ ] Capture the site's information architecture (section/page hierarchy, ordering) — editorial signal even if structure changes.
-- [ ] Commit `./site-export/` as a second baseline snapshot.
+The static site source (`docs/`, `mkdocs.yml`) is already in this repository. No separate export needed.
 
-**Deliverable:** `./site-export/` — markdown and structure from the original site, committed as-is.
+- [x] `docs/` contains 34 `.md` files; `mkdocs.yml` captures the full nav structure.
+- [x] Site sections: Home, Principles, Developer's Guide, Projects, Legal.
+
+**Deliverable:** `docs/` and `mkdocs.yml` in this repo. ✅
 
 ---
 
