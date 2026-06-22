@@ -4,6 +4,37 @@ This file captures the active improvement plan. For static aims, objectives, and
 
 ---
 
+## Governance rules for forum interaction
+
+These rules are **non-negotiable** and must be observed at all times when using `dsc` with `forum.rcpch.tech`.
+
+### Human approval required
+> **No changes are ever pushed to the forum without explicit human review and approval.**
+
+No automated or agent-initiated push to Discourse should happen without a human reviewing the exact diff first. The `--dry-run` flag must always be used to preview changes, and the output reviewed, before executing any push command.
+
+### No deletions
+> **Topics are never deleted, only updated or created.**
+
+The only operations permitted are:
+- `dsc topic push` — update the first post of an existing topic
+- `dsc category push` — update existing topics or create new ones (never deletes)
+- `dsc topic new` — create a new topic
+
+Topic deletion via `dsc post` or any other mechanism is explicitly prohibited. If a topic needs to be retired, it should be unlisted or archived directly in the Discourse admin UI by a human.
+
+### Canonical offline copy
+The `forum-export/` directory in this repository is the **canonical offline Git-tracked copy** of all Playbook topics. It is the source of truth for the content of each topic.
+
+- Every time topics are pulled from Discourse, the result is committed to this repo.
+- Edits to Playbook content are made here (in `forum-export/`) and pushed to Discourse, **or** made directly inline in Discourse — but either way, the repo should be kept in sync by pulling after any inline forum edits.
+- Git history provides an audit trail of all changes to topic content.
+
+### Preserving Discourse edit history
+When `dsc topic push` updates a topic, it calls `PUT /posts/{id}.json` with only `post[raw]` set. Discourse automatically creates an edit revision in its own history for every such update (the `skip_revision` parameter is not set). This means **both** the Git log (offline) **and** the Discourse revision history (online) independently record every change.
+
+---
+
 ## Immediate content tasks
 
 - [ ] Bring the `colours.md` file from the forum (`forum.rcpch.tech/c/playbook`) into these docs.
@@ -141,3 +172,38 @@ rcpch-playbook/
   canonical/         # Stage 4-5 edited, push-ready topics
   backlog.md         # identified gaps to fill later
 ```
+
+---
+
+## `dsc` gap analysis
+
+This section documents features missing from `dsc` (v0.10.9) that are needed to support the governance workflow above. These should be raised with the `dsc` maintainer for implementation.
+
+### Gap 1 — `category pull` does not embed topic IDs in output files
+
+**What happens now:** `dsc category pull` saves each topic as `<slugified-title>.md` with no YAML front matter. The mapping from local filename → Discourse topic ID is not persisted anywhere.
+
+**Why this matters:** `dsc category push` matches local files to existing forum topics by comparing the slugified title (or filename stem) against the remote topic slug. If a topic's title is edited locally, the slug changes, the match fails, and `category push` silently **creates a duplicate topic** instead of updating the existing one.
+
+**What is needed:** `category pull` should embed YAML front matter in every pulled file containing at minimum `topic_id` and `url` (similar to what `topic pull --full` already does for full-thread pulls). `category push` should then read `topic_id` from front matter and use it directly to target the correct post, falling back to slug matching only when front matter is absent.
+
+---
+
+### Gap 2 — `category push` ignores `--dry-run`
+
+**What happens now:** The `--dry-run` flag is accepted by the CLI parser but the `category_push()` function signature does not receive it (see `main.rs` line 226: `commands::category::category_push(&config, &discourse, &category, &local_path)` — `dry_run` is omitted). The flag is silently discarded; the push proceeds as a live operation.
+
+**Why this matters:** The governance rule requires human review of exactly what will change before any push. Without a working dry-run, there is no safe way to preview the operation.
+
+**What is needed:** Pass `dry_run` into `category_push()` and implement dry-run behaviour that prints, for each local file: whether it would **update** an existing topic (with topic ID and URL) or **create** a new topic — without making any API calls.
+
+---
+
+### Gap 3 — `category push` silently creates new topics on slug mismatch
+
+**What happens now:** When a local `.md` file does not match any existing topic by slug or title, `category push` creates a new topic without warning. There is no `--updates-only` or `--no-create` guard.
+
+**Why this matters:** A renamed file, a title typo, or a slug normalization edge case can cause silent topic duplication on the forum. Discovering and cleaning up orphaned duplicates manually is painful and risks confusion.
+
+**What is needed:** A `--updates-only` flag (or equivalent) that causes `category push` to error (or at minimum warn clearly) when a local file has no matching remote topic, rather than silently creating one. The working dry-run (Gap 2) would also surface this issue before it happens.
+
